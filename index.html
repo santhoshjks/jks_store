@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E Commerce</title>
+    <link rel="stylesheet" href="webcss.css">
+
+    </head>
+    <body style="max-width:1000px; margin: 20px auto;">
+        <header >
+            <b><em>JKS Store</em></b> 
+        </header>
+        
+        
+        <section class="search-container">
+            <div class="cart-container">
+                <img id="cart" src="pic\cart.jpeg">
+            </div>
+            <input type="text" id="searchBar" placeholder="Search for products">
+            <button id="clearBtn" class="clear-btn">&times;</button>
+            <button type="submit" id="searchBtn">Search</button>
+            
+        </section>
+        <div id="productList"></div>
+        <div class="img-container">
+        <div class="img1">
+            <img id="img1" src="pic\mobile.jpeg" tabindex="-1"  width="150px">
+        </div>
+        <div class="img2">
+            <img id="img2" src="pic\laptop.jpeg" tabindex="-1" width="150px">
+        </div>
+        <div class="img3">
+            <img id="img3" src="pic\tv.jpeg" tabindex="-1" width="150px">
+        </div>
+        <div class="img4">
+            <img id="img4" src="pic\accesories.jpeg" tabindex="-1" width="150px">
+        </div>
+        </div>
+        
+        <video controls autoplay muted loop>
+            <source src="D:\Desktop\Ecommerce\pic\svideo.mp4" type="video/mp4">
+        </video>
+
+        <div class="about">
+            <p>
+                <b>Contact Details </b>
+                
+                
+
+            </p>
+        </div>
+        <div class="info">
+            <p>
+                <b>Address:JKS Company Pvt.Ltd<br>3/15 Pillaiyar Kovil Street,<br>Anna Nagar,Chenai-600028,<br>Tamil Nadu,India<br><br>
+                Contact:8686757575<br>Email id:jksstore345@gamil.com<br>
+                Linkedin:<strong>santhoshjks</strong></b>
+                <a href=""></a>
+            </p>
+        </div>
+        <script src="webjs.js">
+   ;   
+        </script>
+        <script>
+      
+
+                   document.getElementById("img1").addEventListener("click",function(){
+    window.location.href="web2.html";
+})
+document.getElementById("img2").addEventListener("click",function(){
+    window.location.href="web3.html";
+});
+document.getElementById("img3").addEventListener("click",function(){
+    window.location.href="web4.html";
+});
+document.getElementById("img4").addEventListener("click",function(){
+    window.location.href="web5.html";
+});
+
+
+                   document.getElementById("cart").addEventListener("click",function(){
+    window.location.href="cart.html";
+})
+
+        </script>
+    </body>
+
+    
+
+</html>

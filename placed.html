@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Success</title>
+  <style>
+    body {
+      background-color: #000000; /* Full black background */
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    .success-container{
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 10px auto;
+    
+    }
+    .success-icon {
+      position: relative;
+      top:auto;
+      margin-left: 32%;
+      border: 2px solid rgba(0, 0, 177, 0.808);
+      background-color: rgba(0, 0, 177, 0.808);
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      font-size: 80px;
+      
+     
+     
+    }
+    .message {
+      font-size: 28px;
+      margin-top: 10%;
+      margin-bottom: 10%;
+      
+    }
+    .sub-message {
+      font-size: 18px;
+      color: #ccc;
+      margin-bottom: 10%;
+     
+    }
+    .home-button {
+      background-color:green;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .home-button:hover {
+      background-color: yellowgreen;
+    }
+  </style>
+</head>
+<body style="max-width: 1000px; margin: 20px auto;">
+<div class="success-container">
+  <div class="success-icon">✔️</div>
+  <div class="message">Order Placed Successfully!</div>
+  <div class="sub-message">Thank you for your purchase. Your order will be processed soon.<br>
+    Track your order status via sms & mail<br>
+    If you want to cancel the product,then you will contact via mail
+</div>
+</div>
+
+  <button class="home-button" onclick="window.location.href='index.html'">Return to Home</button>
+
+</body>
+</html>

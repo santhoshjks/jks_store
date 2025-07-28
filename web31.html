@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {text-align: center;}
+
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 500px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color:orangered;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+body{
+  background-color: black;
+}
+
+img{
+    margin-left: 10%;
+    height: auto;
+    width: auto;
+}
+.btn{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color:green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color:rgb(0, 255, 0);
+        }
+        #productName{
+          color: cadetblue;
+          text-align: center;
+          font-size: x-large;
+          margin: 8%;
+        }
+
+</style>
+</head>
+<body style="max-width: 1000px; margin: 20px auto;" >
+
+
+<div class="slideshow-container">
+<div class="mySlides fade">
+  <div class="numbertext">1 / 4</div>
+  <img id="pImage" src="pic\m1.jpeg" style="width:80%; ">
+  
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 4</div>
+  <img src="pic\m2.jpeg" style="width: 80%;">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 4</div>
+  <img src="pic\m3.jpeg" style="width: 80%;">
+</div>
+
+<div class="mySlides fade">
+    <div class="numbertext">4 / 4</div>
+    <img src="pic\m4.jpeg" style="width: 80%;">
+  </div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span> 
+
+</div>
+<form id="myForm">
+<div id="product">
+  <p id="productName"><b>Msi Creator Pro</b></p>
+  <p id="productPrice" style="color: crimson; font-size: x-large; text-align: center;"><b> &#8377;502,960</b></p>
+</div>
+<div>
+  <p style="color: rgb(0, 0, 150);font-size: x-large; padding-left: 2%;">
+   <u><b>Specification:</b></u> 
+  </p>
+  <p style="color: rgba(245, 222, 179, 0.836); text-align:center; margin: 10%;">
+    Processor: Intel Core i9-12900H (14-core, up to 5.0 GHz)<br><br>
+
+Graphics: NVIDIA RTX A5500 (16 GB GDDR6)<br><br>
+
+RAM: 64 GB DDR5 (2×32 GB, 4800 MHz)<br><br>
+
+Storage: 1 TB NVMe SSD<br><br>
+
+Display: 16″ QHD+(2560×1600) CalMAN Verified<br><br>
+
+Connectivity:
+
+Wi-Fi 6E (Killer AX1675)<br>
+
+Bluetooth 5.2<br>
+
+USB-C 3.2 Gen 2 (DisplayPort Alt)<br>
+
+USB4 / Thunderbolt 4 with PD<br>
+
+USB-A 3.2 Gen 2<br>
+
+SD Card Reader<br><br>
+
+Webcam: 1080p IR Camera<br><br>
+
+Audio: 4-speaker setup (Dynaudio)<br><br>
+
+Battery: 90 Wh, 4-cell<br><br>
+
+Operating System: Windows 11 Pro<br><br>
+
+Cooling: Vapor Chamber Cooling<br><br>
+
+Build: MIL-STD-810G Military Grade Durability<br><br>
+
+Weight: ~2.39 kg<br><br>
+
+Dimensions: 359 × 256 × 19.1 mm<br><br>
+
+Warranty: 3 Years
+  </p>
+</div>
+</form>
+<div class="btn">
+  <button onclick="addToCart()">Add To Cart</button>
+  <button onclick="buyNow()" style="width:250px;">Buy Now</button></div>
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+function addToCart() {
+  const product = {
+      name: document.getElementById("productName").innerText,
+      price: document.getElementById("productPrice").innerText,
+      image:document.getElementById("pImage").src,
+      page:"web31.html"
+
+    };
+
+    // Get existing items or start new
+    let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    // Add current product
+    cart.push(product);
+
+    // Save back to localStorage
+    localStorage.setItem("cartItems", JSON.stringify(cart));
+
+    alert("Product added to cart!");
+  }
+
+
+    function buyNow() {
+      const product = {
+        names: "Msi Creator Pro",
+        prices: "₹502,960"
+      };
+      localStorage.setItem("selectedProduct", JSON.stringify(product));
+      window.location.href = "order.html";
+    }
+</script>
+
+</body>
+</html> 

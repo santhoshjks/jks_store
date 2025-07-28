@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Place Order</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial;
+      padding: 20px;
+      text-align: center;
+    }
+    input, select {
+      width: 340px;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      background: green;
+      color: white;
+      padding: 10px 15px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: darkgreen;
+    }
+    strong {
+      color: red;
+    }
+    
+  </style>
+</head>
+<body style="max-width: 1000px; margin: 20px auto;">
+  <h2 style="color: rgb(0, 0, 150); font-size: xx-large;">Order Form</h2>
+
+  <p><strong>Product Name:</strong> <span id="productName"></span></p>
+  <p><strong>Product Price:</strong> <span id="productPrice"></span></p>
+
+  <form id="orderForm">
+    <input type="text" name="firstName" placeholder="First Name" required><br>
+    <input type="text" name="lastName" placeholder="Last Name" required><br>
+    <input type="email" name="email" placeholder="Email" required><br>
+    <input type="text" name="street" placeholder="Street" required><br>
+    <input type="text" name="city" placeholder="City" required><br>
+    <input type="text" name="state" placeholder="State" required><br>
+    <input type="text" name="pincode" placeholder="Pincode" required><br>
+    <input type="tel" name="phone" placeholder="Phone Number" required><br>
+    <input type="tel" name="whatsapp" placeholder="WhatsApp Number" required><br>
+
+    <select id="paymentMethod" required>
+      <option value="">-- Select Payment Method --</option>
+      <option value="upi">Google Pay / UPI</option>
+      <option value="cod">Cash on Delivery</option>
+    </select><br>
+
+    <button type="submit">Place Order</button>
+  </form>
+
+  <p id="response"></p>
+
+  <script>
+    // Load product details
+    const product = JSON.parse(localStorage.getItem("selectedProduct")) || {};
+    document.getElementById("productName").textContent = product.names || "N/A";
+    document.getElementById("productPrice").textContent = product.prices || "N/A";
+
+    // Handle order submission
+    document.getElementById("orderForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const paymentMethod = document.getElementById("paymentMethod").value;
+      if (!paymentMethod) {
+        alert("Please select a payment method.");
+        return;
+      }
+
+      const formData = new FormData(this);
+      const userData = {};
+      formData.forEach((value, key) => userData[key] = value);
+
+      const orderData = {
+        ...userData,
+        productName: product.names,
+        productPrice: product.prices,
+        paymentMethod: paymentMethod
+      };
+
+      if (paymentMethod === "cod") {
+        submitOrder(orderData);
+      } else if (paymentMethod === "upi") {
+        payWithRazorpay(orderData);
+      }
+      
+    });
+
+    function submitOrder(orderData) {
+      fetch('https://script.google.com/macros/s/AKfycbw3es5NjAk-531UbP5YRECQAJ8aRUr9CSc0Ad7eB8V-T-vTF5CDJ0zGqdLGkr2IWGbU/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        body: JSON.stringify(orderData),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(() => {
+        alert("Order placed successfully");
+        document.getElementById("orderForm").reset();
+        localStorage.removeItem("selectedProduct");
+        window.location.href="placed.html";
+      })
+      .catch(() => {
+       
+        alert("Failed to place order,check your internet connection.");
+      });
+    }
+
+    function payWithRazorpay(orderData) {
+      const options = {
+        "key": "rzp_test_YourKeyHere", // Replace with your Razorpay test/live key
+        "amount": parseInt(orderData.productPrice) * 100, 
+        "currency": "INR",
+        "name": "Your Store",
+        "description": "Order Payment",
+        "handler": function (response) {
+          orderData.razorpay_payment_id = response.razorpay_payment_id;
+          submitOrder(orderData);
+        },
+        "prefill": {
+          "name": orderData.firstName + " " + orderData.lastName,
+          "email": orderData.email,
+          "contact": orderData.phone
+        },
+        "theme": {
+          "color": "#0f9d58"
+        },
+        "method": {
+          "upi": true,
+          "card": false,
+          "netbanking": false
+        }
+      };
+      const rzp = new Razorpay(options);
+      rzp.open();
+    }
+  </script>
+</body>
+</html>
