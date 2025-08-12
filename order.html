@@ -33,9 +33,73 @@
       background: darkgreen;
     }
     strong {
-      color: red;
+      color: crimson;
     }
-    
+    .overlay {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(
+        135deg,
+        #000000,
+        #0d0d0d,
+        #1a1a1a,
+        #0d0d0d,
+        #000000
+      );
+      background-size: 400% 400%;
+      animation: overlayGradient 6s ease infinite;
+      backdrop-filter: blur(1px);
+    }
+
+    @keyframes overlayGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Glowing spinner */
+    .spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 60px;
+      height: 60px;
+      margin: -30px 0 0 -30px;
+      border: 6px solid rgba(255, 255, 255, 0.1);
+      border-top: 6px solid #00bfff;
+      border-radius: 50%;
+      animation: spin 1.2s ease-in-out infinite;
+      box-shadow: 0 0 12px #00bfff;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Animated loading text */
+    .loading-text {
+      position: absolute;
+      top: 65%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      color: #ffffff;
+      animation: pulse 2s infinite ease-in-out;
+      letter-spacing: 1px;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
   </style>
 </head>
 <body style="max-width: 1000px; margin: 20px auto;">
@@ -62,9 +126,15 @@
     </select><br>
 
     <button type="submit">Place Order</button>
+
   </form>
 
   <p id="response"></p>
+  <div class="overlay" id="loaderOverlay">
+    <div class="spinner"></div>
+    <div class="loading-text">Placing Order...</div>
+  </div>
+
 
   <script>
     // Load product details
@@ -74,6 +144,10 @@
 
     // Handle order submission
     document.getElementById("orderForm").addEventListener("submit", function(e) {
+      document.getElementById("loaderOverlay").style.display = "block";
+
+// Simulate delay before redirect
+
       e.preventDefault();
 
       const paymentMethod = document.getElementById("paymentMethod").value;
@@ -100,6 +174,7 @@
       }
       
     });
+    
 
     function submitOrder(orderData) {
       fetch('https://script.google.com/macros/s/AKfycbw3es5NjAk-531UbP5YRECQAJ8aRUr9CSc0Ad7eB8V-T-vTF5CDJ0zGqdLGkr2IWGbU/exec', {
@@ -110,11 +185,14 @@
           'Content-Type': 'application/json'
         }
       })
+      
       .then(() => {
-        alert("Order placed successfully");
+        
         document.getElementById("orderForm").reset();
         localStorage.removeItem("selectedProduct");
-        window.location.href="placed.html";
+        setTimeout(() => {
+  window.location.href = "placed.html"; 
+}, 5000);
       })
       .catch(() => {
        

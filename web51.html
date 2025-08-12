@@ -3,14 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accessories</title>
 <style>
 * {box-sizing: border-box}
 body {font-family: Verdana, sans-serif; margin:0}
-.mySlides {display: none;
-        
-}
+.mySlides {display: none}
 img {text-align: center;}
-
 
 /* Slideshow container */
 .slideshow-container {
@@ -97,107 +95,108 @@ body{
 }
 
 img{
-    padding-left: 20%;
-    height: auto;
-    width: auto;
+  padding-left: 20%;
+  height: auto;
+  width: auto;
 }
 .btn{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color:green;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color:rgb(0, 255, 0);
-        }
-        #productName{
-          color: cadetblue;
-          text-align: center;
-          font-size: x-large;
-          margin: 8%;
-        }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color:#00a806;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+button:hover {
+  background-color:#005204 ;
+    transform: translateY(-4px);
+}
+#productName{
+  color: cadetblue;
+  text-align: center;
+  font-size: x-large;
+  margin: 8%;
+}
 
+/* New CSS for specification grid */
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  color: rgba(245, 222, 179, 0.836);
+  margin: 10% 5%;
+  font-size: 14px;
+  text-align: left;
+}
+.spec-grid span {
+  background-color: #1a1a1a;
+  padding: 10px;
+  border-radius: 5px;
+}
 </style>
 </head>
-<body style="max-width: 1000px; margin: 20px auto;" >
-
+<body style="max-width: 1000px; margin: 20px auto;">
 
 <div class="slideshow-container">
 <div class="mySlides fade">
   <div class="numbertext">1 / 2</div>
-  <img id="pImage" src="pic\son1.jpeg" style=" width:80%;">
-  
+  <img id="pImage" src="pic/son1.jpeg" style="width:80%;" alt="Sony WI-1000XM2 Headphones">
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">2 / 2</div>
-  <img src="pic\son2.jpeg" style="width: 80%;">
+  <img src="pic/son2.jpeg" style="width: 80%;" alt="Side view of the Sony WI-1000XM2 Headphones">
 </div>
-
-
 
 <a class="prev" onclick="plusSlides(-1)">❮</a>
 <a class="next" onclick="plusSlides(1)">❯</a>
-
 </div>
 <br>
 
 <div style="text-align:center">
   <span class="dot" onclick="currentSlide(1)"></span> 
   <span class="dot" onclick="currentSlide(2)"></span> 
- 
-
 </div>
+
 <form id="myForm">
 <div id="product">
   <p id="productName"><b>Sony WI-1000XM2</b></p>
   <p id="productPrice" style="color: crimson; font-size: x-large; text-align: center;"><b> &#8377;63,861</b></p>
 </div>
 <div>
-  <p style="color: blue;font-size: x-large; padding-left: 2%;">
-   <u><b>Specification:</b></u> 
+  <p style="color: blue ;font-size: x-large; text-align: center; border: 5px solid white; border: none; border-radius: 8px; margin: 50px; padding:10px ; background-color: skyblue; ">
+    <b>Specification</b> 
   </p>
-  <p style="color: rgba(245, 222, 179, 0.836);text-align: center; margin: 10%;">
-  
-• Driver: Hybrid (9 mm dynamic + balanced armature) Neodymium  <br><br>
-• Frequency Response: 3 Hz – 40,000 Hz<br><br>  
-• Impedance: 50 Ω (at 1 kHz, cable use)  <br><br>
-• Sensitivity: 99 dB/mW   <br><br>
-
-• Noise Cancellation: HD Noise Canceling Processor QN1, Dual Noise Sensor <br><br>  
-• Adaptive Sound Control, Ambient Sound Mode, Air Pressure Optimizer  <br><br>
-
-• Bluetooth v5.0 (2.4 GHz), range ~10 m; NFC one-touch pairing   <br><br>
-• Supported Codecs: SBC, AAC, LDAC  <br><br>
-
-• Battery Life (NC ON): ~10 h; Ambient mode: ~12 h; NC OFF: ~15 h  <br><br>
-• Rapid charge: 10 min → 80 min playback  <br><br>
-
-• Controls: In-line remote (volume/playback/NC), voice assistant support (Google/Alexa)  <br><br> 
-
-• Wired Support: 3.5 mm analog input, USB-C charging  <br><br>
-• High-Res Audio: DSEE HX upscaling and wireless LDAC <br><br>  
-
-• Neckband Style: Flexible silicone; earbuds magnetic for tangle-free storage <br><br>  
-
-• Accessories Included: Carry case, USB-C cable, 3.5 mm cable, airplane adapter, multiple earbud tip sizes   
-
-  </p>
+  <div class="spec-grid">
+    <span>Driver: Hybrid (9 mm dynamic + balanced armature) Neodymium</span>
+    <span>Frequency Response: 3 Hz – 40,000 Hz</span>
+    <span>Impedance: 50 Ω (at 1 kHz, cable use)</span>
+    <span>Sensitivity: 99 dB/mW</span>
+    <span>Noise Cancellation: HD Noise Canceling Processor QN1, Dual Noise Sensor, Adaptive Sound Control, Ambient Sound Mode, Air Pressure Optimizer</span>
+    <span>Bluetooth v5.0 (2.4 GHz), range ~10 m; NFC one-touch pairing</span>
+    <span>Supported Codecs: SBC, AAC, LDAC</span>
+    <span>Battery Life (NC ON): ~10 h; Ambient mode: ~12 h; NC OFF: ~15 h</span>
+    <span>Rapid charge: 10 min → 80 min playback</span>
+    <span>Controls: In-line remote (volume/playback/NC), voice assistant support (Google/Alexa)</span>
+    <span>Wired Support: 3.5 mm analog input, USB-C charging</span>
+    <span>High-Res Audio: DSEE HX upscaling and wireless LDAC</span>
+    <span>Neckband Style: Flexible silicone; earbuds magnetic for tangle-free storage</span>
+    <span>Accessories Included: Carry case, USB-C cable, 3.5 mm cable, airplane adapter, multiple earbud tip sizes</span>
+  </div>
 </div>
 </form>
 <div class="btn">
   <button onclick="addToCart()">Add To Cart</button>
-  <button onclick="buyNow()" style="width:250px;">Buy Now</button></div>
+  <button onclick="buyNow()" style="width:250px;">Buy Now</button>
+</div>
 <script>
 let slideIndex = 1;
 showSlides(slideIndex);
@@ -217,45 +216,43 @@ function showSlides(n) {
   if (n > slides.length) {slideIndex = 1}    
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
+    slides[i].style.display = "none";    
   }
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndex-1].style.display = "block";  
+  slides[slideIndex-1].style.display = "block";    
   dots[slideIndex-1].className += " active";
 }
+
 function addToCart() {
   const product = {
-      name: document.getElementById("productName").innerText,
-      price: document.getElementById("productPrice").innerText,
-      image:document.getElementById("pImage").src,
-      page:"web51.html"
+    name: document.getElementById("productName").innerText,
+    price: document.getElementById("productPrice").innerText,
+    image:document.getElementById("pImage").src,
+    page:"web51.html"
+  };
 
-    };
+  // Get existing items or start new
+  let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-    // Get existing items or start new
-    let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+  // Add current product
+  cart.push(product);
 
-    // Add current product
-    cart.push(product);
+  // Save back to localStorage
+  localStorage.setItem("cartItems", JSON.stringify(cart));
+  alert("Product added to cart!");
+}
 
-    // Save back to localStorage
-    localStorage.setItem("cartItems", JSON.stringify(cart));
-
-    alert("Product added to cart!");
-  }
-
-
-    function buyNow() {
-      const product = {
-        names: "Sony WI-1000XM2",
-        prices: "₹63,861"
-      };
-      localStorage.setItem("selectedProduct", JSON.stringify(product));
-      window.location.href = "order.html";
-    }
+function buyNow() {
+  const product = {
+    names: "Sony WI-1000XM2",
+    prices: "₹63,861"
+  };
+  localStorage.setItem("selectedProduct", JSON.stringify(product));
+  window.location.href = "order.html";
+}
 </script>
 
 </body>
-</html> 
+</html>
