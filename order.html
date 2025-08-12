@@ -21,7 +21,7 @@
       border: none;
     }
     button {
-      background: green;
+      background: #00a806;
       color: white;
       padding: 10px 15px;
       margin-top: 20px;
@@ -30,7 +30,8 @@
       cursor: pointer;
     }
     button:hover {
-      background: darkgreen;
+      background: #005204;
+      transform: translateY(-4px);
     }
     strong {
       color: crimson;
@@ -103,7 +104,7 @@
   </style>
 </head>
 <body style="max-width: 1000px; margin: 20px auto;">
-  <h2 style="color: blue; font-size: xx-large;">Order Form</h2>
+  <h2 style="color: skyblue; font-size: xx-large;">Order Form</h2>
 
   <p><strong>Product Name:</strong> <span id="productName"></span></p>
   <p><strong>Product Price:</strong> <span id="productPrice"></span></p>
@@ -132,7 +133,7 @@
   <p id="response"></p>
   <div class="overlay" id="loaderOverlay">
     <div class="spinner"></div>
-    <div class="loading-text">Placing Order...</div>
+    <div class="loading-text">Placing Order</div>
   </div>
 
 
