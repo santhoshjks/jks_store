@@ -1,97 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECommerce</title>
-    <link rel="stylesheet" href="webcss.css">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECommerce</title>
+  <link rel="stylesheet" href="webcss.css">
+  
+</head>
+<body style="max-width:1000px; margin: 20px auto;">
 
-    </head>
-    <body style="max-width:1000px; margin: 20px auto;">
-        <header >
-            <b><em>JKS Store</em></b> 
-        </header>
-        
-        
-        <section class="search-container">
-            <div class="cart-container">
-                <img id="cart" src="pic\cart.jpeg">
-            </div>
-            <input type="text" id="searchBar" placeholder="Search for products">
-            <button id="clearBtn" class="clear-btn">&times;</button>
-            <button type="submit" id="searchBtn">Search</button>
-            
-        </section>
-        <div id="productList"></div>
-        <div class="img-container">
-        <div class="img1">
-            <img id="img1" src="pic\mobile.jpeg" tabindex="-1"  width="150px">
-        </div>
-        <div class="img2">
-            <img id="img2" src="pic\laptop.jpeg" tabindex="-1" width="150px">
-        </div>
-        <div class="img3">
-            <img id="img3" src="pic\tv.jpeg" tabindex="-1" width="150px">
-        </div>
-        <div class="img4">
-            <img id="img4" src="pic\accesories.jpeg" tabindex="-1" width="150px">
-        </div>
-        </div>
-        
-        <video controls autoplay muted loop>
-            <source src="pic\svideo.mp4" type="video/mp4">
-        </video>
+  <header>
+    <b><em>JKS Store</em></b>
+  </header>
 
-        <div class="about">
-            <p>
-                <b>Contact Details </b>
-                
-                
+  <section class="search-container">
+    <div class="cart-container">
+      <img id="cart" src="pic/cart.jpeg" alt="Cart">
+      
+    </div>
+    <input type="text" id="searchBar" placeholder="Search for products">
+    <button id="clearBtn" class="clear-btn">&times;</button>
+    <button type="submit" id="searchBtn">Search</button>
+  </section>
 
-            </p>
-        </div>
-        <div class="info">
-            <p>
-                <b>Address:JKS Company Pvt.Ltd<br>3/15 Pillaiyar Kovil Street,<br>Anna Nagar,Chenai-600028,<br>Tamil Nadu,India<br><br>
-                Contact:8686757575<br>Email id:jksstore345@gamil.com<br>
-                Linkedin:<strong>santhoshjks</strong></b>
-                <a href=""></a>
-            </p>
-        </div>
-        <script src="webjs.js">
-   ;   
-        </script>
-         
-        <script>
+  <div id="productList"></div>
 
- 
-
-
-     
-
-                   document.getElementById("img1").addEventListener("click",function(){
-    window.location.href="web2.html";
-})
-document.getElementById("img2").addEventListener("click",function(){
-    window.location.href="web3.html";
-});
-document.getElementById("img3").addEventListener("click",function(){
-    window.location.href="web4.html";
-});
-document.getElementById("img4").addEventListener("click",function(){
-    window.location.href="web5.html";
-});
-
-
-                   document.getElementById("cart").addEventListener("click",function(){
-    window.location.href="cart.html";
-})
-
-
-        </script>
-       
-    </body>
-
+  <div class="img-container">
+    <div class="img-card">
+      <img id="img1" src="pic/mobile.jpeg" alt="Mobile">
     
+    </div>
+    <div class="img-card">
+      <img id="img2" src="pic/laptop.jpeg" alt="Laptop">
+    
+    </div>
+    <div class="img-card">
+      <img id="img3" src="pic/tv.jpeg" alt="Television">
+    
+    </div>
+    <div class="img-card">
+      <img id="img4" src="pic/accesories.jpeg" alt="Accessories">
+    
+    </div>
+  </div>
+  <div class="about">
+    <p class="contact" >
+        <b>About Us</b>
+    </p>
+    <div class="spec-grid">
+  <p>
+    JKS Store is your one-stop destination for the latest electronics and accessories. We bring together a wide range of high-quality products including mobiles, laptops, televisions, and smart accessories at competitive prices. Our mission is to make technology accessible, reliable, and affordable for everyone.
 
+At JKS Store, we believe in:<br><br>
+
+ ~ Quality Products – Only trusted and genuine brands.<br>
+
+~ Affordable Pricing – Best value for your money.<br>
+
+~ Customer Satisfaction – Dedicated support for a smooth shopping experience.<br>
+
+ ~Innovation – Continuously updating with the latest trends in tech.
+  </p>
+</div>
+</div>
+  <video controls autoplay muted loop width="100%">
+    <source src="pic/svideo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="contact">
+    <p><b>Contact Details</b></p>
+  </div>
+
+  <div class="info">
+    <p>
+      <b>
+        Address: JKS Company Pvt. Ltd<br>
+        3/15 Pillaiyar Kovil Street,<br>
+        Anna Nagar, Chennai-600028,<br>
+        Tamil Nadu, India<br><br>
+        Contact: 8686757575<br>
+        Email: jksstore345@gmail.com<br>
+        LinkedIn: <strong>santhoshjks</strong>
+      </b>
+    </p>
+  </div>
+
+  <script src="webjs.js"></script>
+
+  <script>
+    document.getElementById("img1").addEventListener("click", function () {
+      window.location.href = "web2.html";
+    });
+    document.getElementById("img2").addEventListener("click", function () {
+      window.location.href = "web3.html";
+    });
+    document.getElementById("img3").addEventListener("click", function () {
+      window.location.href = "web4.html";
+    });
+    document.getElementById("img4").addEventListener("click", function () {
+      window.location.href = "web5.html";
+    });
+
+    document.getElementById("cart").addEventListener("click", function () {
+      window.location.href = "cart.html";
+    });
+  </script>
+  
+
+</body>
 </html>

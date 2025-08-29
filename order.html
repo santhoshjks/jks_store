@@ -104,7 +104,7 @@
   </style>
 </head>
 <body style="max-width: 1000px; margin: 20px auto;">
-  <h2 style="color: skyblue; font-size: xx-large;">Order Form</h2>
+  <h2 style="color: rgb(0, 145, 202); font-size: xx-large;">Order Form</h2>
 
   <p><strong>Product Name:</strong> <span id="productName"></span></p>
   <p><strong>Product Price:</strong> <span id="productPrice"></span></p>
@@ -133,7 +133,7 @@
   <p id="response"></p>
   <div class="overlay" id="loaderOverlay">
     <div class="spinner"></div>
-    <div class="loading-text">Placing Order</div>
+    <div class="loading-text"></div>
   </div>
 
 
@@ -190,6 +190,7 @@
       .then(() => {
         
         document.getElementById("orderForm").reset();
+        localStorage.removeItem("cartItems");
         localStorage.removeItem("selectedProduct");
         setTimeout(() => {
   window.location.href = "placed.html"; 
@@ -231,5 +232,4 @@
     }
   </script>
 </body>
-
 </html>

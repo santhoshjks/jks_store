@@ -135,58 +135,59 @@ img {
   outline: none !important;
 }
 
-.img-container{
-  padding: 5%;
-}
-.img{
+/* Grid for product images */
+.img-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Always 2 per row */
+  gap: 20px;
+  padding: 20px;
   text-align: center;
-  cursor: pointer;
-
 }
+
+.img-card {
+  background: #222;
+  padding: 15px;
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.img-card img {
+  width: 100%;
+  max-width: 150px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.img-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.img-card img:hover {
+  transform: scale(1.05);
+}
+
+/* Mobile: show 1 per row */
 figcaption{
   margin-left: 5%;
   margin-right:5% ;
 }
-.img1{
-    position: absolute;
-    padding-left: 2%;
-    top: auto;
-    left: auto;
-    height: auto;
-    width: auto;
-    cursor: pointer;
-   
-}
-.img2{
-    padding-right: 10%;
-    height:auto;
-    width:auto;
-    cursor: pointer;
-    text-align: right;
-    
-    
-}
-.img3{
-    position: absolute;
-    padding-left: 2%;
-    padding-top:7% ;
-    top: auto;
-    left: auto;
-    height: auto;
-    width: auto;
-    cursor: pointer;
-   
-}
-.img4{
-    padding-right: 10%;
-    padding-top: 8%;
-    height: auto;
-    width: auto;
-    cursor: pointer;
-    text-align: right;
-    
-}
 
+ 
+.spec-grid{
+  display: grid;
+  margin-left: 8%;
+  margin-right: 8%;
+}
+.spec-grid p {
+  color: antiquewhite;
+  background-color:#1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: large;
+}
 video{
   width: 80%;
   max-width: 800px;
@@ -195,7 +196,7 @@ video{
   margin-left: 10%;
 }
 
-.about{
+.contact{
     color: red;
     font-size: xx-large;
     text-align: center;
