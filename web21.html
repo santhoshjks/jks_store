@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mobile</title>
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {text-align: center;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 500px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: orangered;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+body{
+  background-color: black;
+}
+
+img{
+    margin-left: 10%;
+    height: auto;
+    width: auto;
+}
+.btn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #00a806;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+button:hover {
+  background-color: #005204;
+  transform: translateY(-4px);
+}
+#productName{
+  color: cadetblue;
+  text-align: center;
+  font-size: x-large;
+  margin: 8%;
+}
+
+/* New CSS for specification grid */
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  color: rgba(245, 222, 179, 0.836);
+  margin: 10% 5%;
+  font-size: 14px;
+  text-align: left;
+}
+.spec-grid span {
+  background-color:#1a1a1a;
+  padding: 10px;
+  border-radius: 5px;
+}
+</style>
+</head>
+<body style="max-width: 1000px; margin: 20px auto;" >
+
+<div class="slideshow-container">
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 7</div>
+    <img id="pImage" src="pic\v3.jpeg" style="width:80%;">
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 7</div>
+    <img src="pic\v5.jpeg" style="width: 80%;">
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 7</div>
+    <img src="pic\v4.jpeg" style="width: 80%;">
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">4 / 7</div>
+    <img src="pic\v1.jpeg" style="width: 80%;">
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">5 / 7</div>
+    <img src="pic\v2.jpeg" style="width: 80%;">
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">6 / 7</div>
+    <img src="pic\v6.jpeg" style="width: 80%;">
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">7 / 7</div>
+    <img src="pic\v7.jpeg" style="width: 80%;">
+  </div>
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span> 
+  <span class="dot" onclick="currentSlide(5)"></span> 
+  <span class="dot" onclick="currentSlide(6)"></span> 
+  <span class="dot" onclick="currentSlide(7)"></span> 
+</div>
+
+<form id="myForm">
+  <div id="product">
+    <p id="productName"><b>Vivo X200 Pro</b></p>
+    <p id="productPrice" style="color: crimson; font-size: x-large; text-align: center;"><b> &#8377;94999</b></p>
+  </div>
+  <div>
+    <p style="color: blue ;font-size: x-large; text-align: center; border: 5px solid white; border: none; border-radius: 8px; margin: 50px; padding:10px ; background-color: skyblue; ">
+      <b>Specification</b> 
+    </p>
+    <div class="spec-grid">
+      <span>Display: 6.78″ Quad‑curved LTPO AMOLED (1260 × 2800 px FHD+, ~452 ppi), 120 Hz adaptive refresh, HDR10+, Dolby Vision, peak brightness 4,500 nits (0.1‑120 Hz)</span>
+      <span>Chipset: MediaTek Dimensity 9400 (3 nm), octa‑core CPU: 1×3.63 GHz Cortex‑X925 + 3×3.3 GHz Cortex‑X4 + 4×2.4 GHz Cortex‑A720; GPU: Immortalis‑G925</span>
+      <span>Memory & Storage: 16 GB LPDDR5X RAM; 512 GB or 1 TB UFS 4.0 storage; no expandable storage</span>
+      <span>Operating System: Android 15 with Funtouch OS 15 (OriginOS 5 in select regions)</span>
+      <span>Rear Cameras: Triple-camera system with ZEISS optics: 50 MP main (Sony LYT‑818, f/1.57, OIS, PDAF), 50 MP ultra-wide (f/2.0, autofocus, 119° FoV), 200 MP periscope telephoto (ISOCELL HP9 sensor, f/2.67, OIS, 3.7× optical zoom, macro support)</span>
+      <span>Front Camera: 32 MP (f/2.0, ultra‑wide lens), supports 4K video recording at up to 60 fps</span>
+      <span>Video: Rear: 8K @ 30 fps, 4K up to 120 fps (10‑bit HDR, gyro-EIS, Cinematic Portrait); Front: 4K @ 60 fps, 1080p @ 60 fps</span>
+      <span>Battery: 6,000 mAh (typical, global); some European (Austria/Hungary) variants use 5,200 mAh; supports 90 W wired FlashCharge, 30 W wireless charging (in selected regions), reverse wired charging; semi-solid silicon‑anode battery rated to operate down to –20 °C</span>
+      <span>Build & Durability: Dimensions ~162.36 × 75.95 × 8.2–8.49 mm; weight ~223–228 g depending on finish; IP68 & IP69 water/dust resistance; glass or glass‑fiber back, premium metal frame; ultrasonic under‑display fingerprint sensor; stereo speakers; optional satellite connectivity support</span>
+      <span>Connectivity: 5G (Sub‑6 & mmWave), dual SIM (Nano), Wi‑Fi 6/7, Bluetooth 5.4 (aptX HD, LHDC), NFC, infrared blaster, USB‑C 3.2 Gen1 (OTG), GPS (A-GPS, BeiDou, GLONASS, Galileo, NavIC), OTG, Bluetooth, no headphone jack</span>
+      <span>Extras & Imaging: V3+ imaging chip for advanced IA processing; Zeiss T* lens coatings; second‑generation framing features like Full Focal‑Range 4K LOG video, telephoto macro, SuperLandscape, Portrait Video; high‑frequency PWM dimming display optimized for eye care</span>
+      <span>Availability & Pricing (India): 16/512 GB at ₹87,990; 16/1 TB at ₹94,999</span>
+    </div>
+  </div>
+</form>
+
+<div class="btn">
+  <button  onclick="addToCart()" >Add To Cart</button>
+  <button  onclick="buyNow()" style="width:250px;">Buy Now</button>
+</div>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+
+function addToCart() {
+  const product = {
+    name: document.getElementById("productName").innerText,
+    price: document.getElementById("productPrice").innerText,
+    image:document.getElementById("pImage").src,
+    page:"web21.html"
+  };
+  let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+  cart.push(product);
+  localStorage.setItem("cartItems", JSON.stringify(cart));
+  alert("Product added to cart!");
+  
+}
+
+function buyNow() {
+  const product = {
+    names: "vivo x200 pro(white)",
+    prices: "₹94000"
+  };
+  localStorage.setItem("selectedProduct", JSON.stringify(product));
+  window.location.href = "order.html";
+}
+</script>
+
+</body>
+</html>

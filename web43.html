@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tv</title>
+  <style>
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      font-family: Verdana, sans-serif;
+      margin: 0
+    }
+
+    .mySlides {
+      display: none
+    }
+
+    img {
+      text-align: center;
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 500px;
+      position: relative;
+      margin: auto;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Caption text */
+    .text {
+      color: #f2f2f2;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active,
+    .dot:hover {
+      background-color: orangered;
+    }
+
+    /* Fading animation */
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: .4
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    body {
+      background-color: black;
+    }
+
+    img {
+      padding-left: 20%;
+      height: auto;
+      width: auto;
+    }
+
+    .btn {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color:#00a806 ;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #005204 ;
+    transform: translateY(-4px);
+    }
+
+    #productName {
+      color: cadetblue;
+      text-align: center;
+      font-size: x-large;
+      margin: 8%;
+    }
+
+    /* New CSS for specification grid */
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      color: rgba(245, 222, 179, 0.836);
+      margin: 10% 5%;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    .spec-grid span {
+      background-color: #1a1a1a;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body style="max-width: 1000px; margin: 20px auto;">
+
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 4</div>
+      <img id="pImage" src="pic/so1.jpeg" style="width:80%;" alt="SONY Bravia 83-inch OLED 4K TV">
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 4</div>
+      <img src="pic/so2.jpeg" style="width: 80%;" alt="Side view of the SONY Bravia OLED TV">
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 4</div>
+      <img src="pic/so3.jpeg" style="width: 80%;" alt="Close-up of the SONY Bravia screen">
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">4 / 4</div>
+      <img src="pic/so4.jpeg" style="width: 80%;" alt="Back view of the SONY Bravia TV with ports">
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+  </div>
+  <br>
+
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+  </div>
+
+  <form id="myForm">
+    <div id="product">
+      <p id="productName"><b>SONY Bravia 210.82 cm OLED 4K Ultra HD</b></p>
+      <p id="productPrice" style="color: crimson; font-size: x-large; text-align: center;"><b> &#8377;499,990</b></p>
+    </div>
+    <div>
+      <p
+        style="color: blue ;font-size: x-large; text-align: center; border: 5px solid white; border: none; border-radius: 8px; margin: 50px; padding:10px ; background-color: skyblue; ">
+        <b>Specification</b>
+      </p>
+      <div class="spec-grid">
+        <span>Display: 83″ (≈210.8 cm) OLED 4K Ultra HD (3840 × 2160), 120 Hz refresh rate</span>
+        <span>Processor: Cognitive Processor XR with XR OLED Contrast Pro & XR Triluminos Pro</span>
+        <span>Picture Features: XR 4K Upscaling, Motion Clarity, Filmmaker Mode, Ambient Optimisation</span>
+        <span>Audio: Acoustic Surface Audio+ (screen acts as speaker), 60 W output, Dolby Atmos, dual subwoofers, Voice
+          Zoom 2</span>
+        <span>Smart Platform: Google TV with built-in Google Assistant & Chromecast, AirPlay 2 & HomeKit support,
+          multiple streaming apps</span>
+        <span>Gaming Features: HDMI 2.1 (4 ports), VRR, ALLM, 4K@120 Hz support, Game Mode/Watchlist, “Perfect for PS5”
+          optimisations</span>
+        <span>Connectivity: 4 × HDMI 2.1 (HDCP 2.3), 1–2 × USB-A ports, Ethernet (RJ45), Optical Audio Output, Bluetooth
+          4.2, Wi-Fi Certified 802.11ac (dual-band), Chromecast built-in, AirPlay, HomeKit supported</span>
+        <span>Dimensions & Weight: Without Stand: approx. 185.0 × 106.7 × 5.3 cm, ≈42 kg; With Stand: approx. 188.0 ×
+          107.2 × 42.8 cm, ≈43.5 kg, VESA 400 × 400 mm mounting</span>
+        <span>Power: Typical Consumption: ~230 W, Standby ≤ 0.5 W, Voltage Input: 100–240 V, 50/60 Hz</span>
+        <span>Warranty: 1-year manufacturer warranty, installation & demo support available in India</span>
+      </div>
+    </div>
+  </form>
+  <div class="btn">
+    <button onclick="addToCart()">Add To Cart</button>
+    <button onclick="buyNow()" style="width:250px;">Buy Now</button>
+  </div>
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+
+    function addToCart() {
+      const product = {
+        name: document.getElementById("productName").innerText,
+        price: document.getElementById("productPrice").innerText,
+        image: document.getElementById("pImage").src,
+        page: "web43.html"
+      };
+
+      // Get existing items or start new
+      let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+      // Add current product
+      cart.push(product);
+
+      // Save back to localStorage
+      localStorage.setItem("cartItems", JSON.stringify(cart));
+      alert("Product added to cart!");
+    }
+
+    function buyNow() {
+      const product = {
+        names: "SONY Bravia 210.82 cm OLED 4K Ultra HD",
+        prices: "₹499,990"
+      };
+      localStorage.setItem("selectedProduct", JSON.stringify(product));
+      window.location.href = "order.html";
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Place Order</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial;
+      padding: 20px;
+      text-align: center;
+    }
+    input, select {
+      width: 340px;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      background: #00a806;
+      color: white;
+      padding: 10px 15px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #005204;
+      transform: translateY(-4px);
+    }
+    strong {
+      color: crimson;
+    }
+    .overlay {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(
+        135deg,
+        #000000,
+        #0d0d0d,
+        #1a1a1a,
+        #0d0d0d,
+        #000000
+      );
+      background-size: 400% 400%;
+      animation: overlayGradient 6s ease infinite;
+      backdrop-filter: blur(1px);
+    }
+
+    @keyframes overlayGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Glowing spinner */
+    .spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 60px;
+      height: 60px;
+      margin: -30px 0 0 -30px;
+      border: 6px solid rgba(255, 255, 255, 0.1);
+      border-top: 6px solid #00bfff;
+      border-radius: 50%;
+      animation: spin 1.2s ease-in-out infinite;
+      box-shadow: 0 0 12px #00bfff;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Animated loading text */
+    .loading-text {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      color: #ffffff;
+      animation: pulse 2s infinite ease-in-out;
+      letter-spacing: 1px;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+  </style>
+</head>
+<body style="max-width: 1000px; margin: 20px auto;">
+  <h2 style="color: rgb(0, 145, 202); font-size: xx-large;">Order Form</h2>
+
+  <p><strong>Product Name:</strong> <span id="productName"></span></p>
+  <p><strong>Product Price:</strong> <span id="productPrice"></span></p>
+
+  <form id="orderForm">
+    <input type="text" name="firstName" placeholder="First Name" required><br>
+    <input type="text" name="lastName" placeholder="Last Name" required><br>
+    <input type="email" name="email" placeholder="Email" required><br>
+    <input type="text" name="street" placeholder="Street" required><br>
+    <input type="text" name="city" placeholder="City" required><br>
+    <input type="text" name="state" placeholder="State" required><br>
+    <input type="text" name="pincode" placeholder="Pincode" required><br>
+    <input type="tel" name="phone" placeholder="Phone Number" required><br>
+    <input type="tel" name="whatsapp" placeholder="WhatsApp Number" required><br>
+
+    <select id="paymentMethod" required>
+      <option value="">-- Select Payment Method --</option>
+      <option value="upi">Google Pay / UPI</option>
+      <option value="cod">Cash on Delivery</option>
+    </select><br>
+
+    <button type="submit">Place Order</button>
+
+  </form>
+
+  <p id="response"></p>
+  <div class="overlay" id="loaderOverlay">
+    <div class="spinner"></div>
+    <div class="loading-text"></div>
+  </div>
+
+
+  <script>
+    // Load product details
+    const product = JSON.parse(localStorage.getItem("selectedProduct")) || {};
+    document.getElementById("productName").textContent = product.names || "N/A";
+    document.getElementById("productPrice").textContent = product.prices || "N/A";
+
+    // Handle order submission
+    document.getElementById("orderForm").addEventListener("submit", function(e) {
+      document.getElementById("loaderOverlay").style.display = "block";
+
+// Simulate delay before redirect
+
+      e.preventDefault();
+
+      const paymentMethod = document.getElementById("paymentMethod").value;
+      if (!paymentMethod) {
+        alert("Please select a payment method.");
+        return;
+      }
+
+      const formData = new FormData(this);
+      const userData = {};
+      formData.forEach((value, key) => userData[key] = value);
+
+      const orderData = {
+        ...userData,
+        productName: product.names,
+        productPrice: product.prices,
+        paymentMethod: paymentMethod
+      };
+
+      if (paymentMethod === "cod") {
+        submitOrder(orderData);
+      } else if (paymentMethod === "upi") {
+        payWithRazorpay(orderData);
+      }
+      
+    });
+    
+
+    function submitOrder(orderData) {
+      fetch('https://script.google.com/macros/s/AKfycbw3es5NjAk-531UbP5YRECQAJ8aRUr9CSc0Ad7eB8V-T-vTF5CDJ0zGqdLGkr2IWGbU/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        body: JSON.stringify(orderData),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      
+      .then(() => {
+        
+        document.getElementById("orderForm").reset();
+        localStorage.removeItem("cartItems");
+        localStorage.removeItem("selectedProduct");
+        setTimeout(() => {
+  window.location.href = "placed.html"; 
+}, 5000);
+      })
+      .catch(() => {
+       
+        alert("Failed to place order,check your internet connection.");
+      });
+    }
+
+    function payWithRazorpay(orderData) {
+      const options = {
+        "key": "rzp_test_YourKeyHere", // Replace with your Razorpay test/live key
+        "amount": parseInt(orderData.productPrice) * 100, 
+        "currency": "INR",
+        "name": "Your Store",
+        "description": "Order Payment",
+        "handler": function (response) {
+          orderData.razorpay_payment_id = response.razorpay_payment_id;
+          submitOrder(orderData);
+        },
+        "prefill": {
+          "name": orderData.firstName + " " + orderData.lastName,
+          "email": orderData.email,
+          "contact": orderData.phone
+        },
+        "theme": {
+          "color": "#0f9d58"
+        },
+        "method": {
+          "upi": true,
+          "card": false,
+          "netbanking": false
+        }
+      };
+      const rzp = new Razorpay(options);
+      rzp.open();
+    }
+  </script>
+</body>
+</html>

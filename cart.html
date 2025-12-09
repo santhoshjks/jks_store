@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 10px;
+    }
+
+    h1 {
+      text-align: center;
+      color: orangered;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #1c1c1c;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 10px;
+    }
+
+    .cart-item img {
+      width: 100px;
+      height: auto;
+      border-radius: 5px;
+      margin-right: 20px;
+    }
+
+    .details {
+      flex: 1;
+    }
+
+    .details h2 {
+      margin: 0;
+      font-size: 20px;
+      color: aquamarine;
+    }
+
+    .details p {
+      color: crimson;
+      font-size: 18px;
+    }
+
+    .remove-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .remove-btn:hover {
+      background-color: darkred;
+      transform: translateY(-2px);
+    }
+
+    .proceed-btn {
+      display: block;
+      width: 200px;
+      margin: 30px auto;
+      padding: 12px;
+      font-size: 18px;
+      background-color: #00a806;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .proceed-btn:hover {
+      background-color: #005204;
+      transform: translateY(-4px);
+    }
+  </style>
+</head>
+<body style="max-width:1000px; margin: 20px auto;">
+  <h1>Your Cart</h1>
+  <div id="cartContainer"></div>
+
+  <button class="proceed-btn" onclick="proceedToOrder()">Proceed</button>
+
+  <script>
+    const cartContainer = document.getElementById("cartContainer");
+    let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    function displayCart() {
+      cartContainer.innerHTML = "";
+
+      if (cart.length === 0) {
+        cartContainer.innerHTML = "<p style='text-align:center;'>Your cart is empty.</p>";
+        document.querySelector(".proceed-btn").style.display = "none";
+        return;
+      }
+
+      cart.forEach((item, index) => {
+        const div = document.createElement("div");
+        div.className = "cart-item";
+        div.innerHTML = `
+          <img src="${item.image}" alt="${item.name}" style="cursor:pointer;" onclick="window.location.href='${item.page}'">
+          <div class="details">
+            <h2>${item.name}</h2>
+            <p>${item.price}</p>
+          </div>
+          <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+        `;
+        cartContainer.appendChild(div);
+      });
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      localStorage.setItem("cartItems", JSON.stringify(cart));
+      displayCart();
+    }
+
+    
+    
+    function proceedToOrder() {
+  if (cart.length === 0) {
+    alert("Cart is empty!");
+    return;
+  }
+
+  const productNames = cart.map(item => item.name).join(", ");
+  const productPrices = cart.map(item => item.price).join(", ");
+
+  const combinedProduct = {
+    names: productNames,
+    prices: productPrices
+  };
+
+  localStorage.setItem("selectedProduct", JSON.stringify(combinedProduct));
+  window.location.href = "order.html";
+}
+    
+
+    displayCart();
+  </script>
+</body>
+</html>

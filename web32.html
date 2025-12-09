@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laptop</title>
+  <style>
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      font-family: Verdana, sans-serif;
+      margin: 0
+    }
+
+    .mySlides {
+      display: none
+    }
+
+    img {
+      text-align: center
+    }
+
+    .slideshow-container {
+      max-width: 500px;
+      position: relative;
+      margin: auto
+    }
+
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 40%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px
+    }
+
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8)
+    }
+
+    .text {
+      color: #f2f2f2;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center
+    }
+
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease
+    }
+
+    .active,
+    .dot:hover {
+      background-color: orangered
+    }
+
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s
+    }
+
+    @keyframes fade {
+      from {
+        opacity: .4
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    body {
+      background-color: black
+    }
+
+    img {
+      margin-left: 10%;
+      height: auto;
+      width: auto
+    }
+
+    .btn {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color:#00a806 ;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px
+    }
+
+    button:hover {
+      background-color:  #005204 ;
+    transform: translateY(-4px);
+    }
+
+    #productName {
+      color: cadetblue;
+      text-align: center;
+      font-size: x-large;
+      margin: 8%
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      color: rgba(245, 222, 179, 0.836);
+      margin: 10% 5%;
+      font-size: 14px;
+      text-align: left
+    }
+
+    .spec-grid span {
+      background-color:#1a1a1a;
+      padding: 10px;
+      border-radius: 5px
+    }
+  </style>
+</head>
+
+<body style="max-width:1000px;margin:20px auto;">
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 2</div><img id="pImage" src="pic/as2.jpeg" style="width:80%;"
+        alt="Asus Rog Strix Scar 17 SE gaming laptop">
+    </div>
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 2</div><img src="pic/as1.jpeg" style="width:80%;"
+        alt="Asus Rog Strix Scar 17 SE keyboard and trackpad view">
+    </div><a class="prev" onclick="plusSlides(-1)">❮</a><a class="next" onclick="plusSlides(1)">❯</a>
+  </div><br>
+  <div style="text-align:center"><span class="dot" onclick="currentSlide(1)"></span><span class="dot"
+      onclick="currentSlide(2)"></span></div>
+  <form id="myForm">
+    <div id="product">
+      <p id="productName"><b>Asus Rog Strix Scar 17 SE</b></p>
+      <p id="productPrice" style="color:crimson;font-size:x-large;text-align:center;"><b> &#8377;470,576</b></p>
+    </div>
+    <div>
+      <p
+        style="color:blue;font-size:x-large;text-align:center;border:5px solid white;border:none;border-radius:8px;margin:50px;padding:10px;background-color:skyblue;">
+        <b>Specification</b></p>
+      <div class="spec-grid"><span>Processor: Intel Core i9‑12950HX (16-core: 8 Performance + 8 Efficient), Turbo up to
+          5.0 GHz, 30 MB Intel Smart Cache</span><span>Graphics: NVIDIA GeForce RTX 3080 Ti Laptop GPU, 16 GB GDDR6
+          VRAM, Up to 175W TGP (150W + 25W Dynamic Boost), MUX Switch + Optimus Support</span><span>Memory: 32 GB DDR5
+          4800 MHz (2 × 16 GB)</span><span>Storage: 2 TB PCIe 4.0 NVMe M.2 SSD</span><span>Display: 17.3″ WQHD (2560 ×
+          1440) 240 Hz refresh rate</span><span>Cooling: Conductonaut Extreme liquid metal on CPU &
+          GPU</span><span>Ports & Connectivity: 2 × USB-A 3.2 Gen 1, 1 × USB-C 3.2 Gen 2 (DP + G-Sync), 1 × Thunderbolt
+          4 (iGPU routed), HDMI 2.1, 2.5G Ethernet, 3.5 mm audio combo jack, Wi-Fi 6E (802.11ax) + Bluetooth
+          5.3</span><span>Audio: 4 × 2W speakers with Dolby Atmos</span><span>Battery: 90 Wh 4-cell Li-ion Fast charging
+          supported</span><span>Build & Dimensions: Weight: ~2.9 – 3.0 kg, Size: 395 × 282 × 23.4–28.3 mm</span></div>
+    </div>
+  </form>
+  <div class="btn"><button onclick="addToCart()">Add To Cart</button><button onclick="buyNow()" style="width:250px;">Buy
+      Now</button></div>
+  <script>let slideIndex = 1; showSlides(slideIndex); function plusSlides(n) { showSlides(slideIndex += n) } function currentSlide(n) { showSlides(slideIndex = n) } function showSlides(n) { let i; let slides = document.getElementsByClassName("mySlides"); let dots = document.getElementsByClassName("dot"); if (n > slides.length) { slideIndex = 1 } if (n < 1) { slideIndex = slides.length } for (i = 0; i < slides.length; i++) { slides[i].style.display = "none" } for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active", "") } slides[slideIndex - 1].style.display = "block"; dots[slideIndex - 1].className += " active" } function addToCart() { const product = { name: document.getElementById("productName").innerText, price: document.getElementById("productPrice").innerText, image: document.getElementById("pImage").src, page: "web32.html" }; let cart = JSON.parse(localStorage.getItem("cartItems")) || []; cart.push(product); localStorage.setItem("cartItems", JSON.stringify(cart)); alert("Product added to cart!") } function buyNow() { const product = { names: "Asus Rog Strix Scar 17 SE", prices: "₹470,576" }; localStorage.setItem("selectedProduct", JSON.stringify(product)); window.location.href = "order.html" }</script>
+</body>
+
+</html>

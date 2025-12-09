@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accessories</title>
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {text-align: center;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 500px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color:orangered;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+body{
+  background-color: black;
+}
+
+img{
+  padding-left: 20%;
+  height: auto;
+  width: auto;
+}
+.btn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color:#00a806;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+button:hover {
+  background-color:#005204 ;
+    transform: translateY(-4px);
+}
+#productName{
+  color: cadetblue;
+  text-align: center;
+  font-size: x-large;
+  margin: 8%;
+}
+
+/* New CSS for specification grid */
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  color: rgba(245, 222, 179, 0.836);
+  margin: 10% 5%;
+  font-size: 14px;
+  text-align: left;
+}
+.spec-grid span {
+  background-color: #1a1a1a;
+  padding: 10px;
+  border-radius: 5px;
+}
+</style>
+</head>
+<body style="max-width: 1000px; margin: 20px auto;">
+
+<div class="slideshow-container">
+<div class="mySlides fade">
+  <div class="numbertext">1 / 2</div>
+  <img id="pImage" src="pic/son1.jpeg" style="width:80%;" alt="Sony WI-1000XM2 Headphones">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 2</div>
+  <img src="pic/son2.jpeg" style="width: 80%;" alt="Side view of the Sony WI-1000XM2 Headphones">
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+</div>
+
+<form id="myForm">
+<div id="product">
+  <p id="productName"><b>Sony WI-1000XM2</b></p>
+  <p id="productPrice" style="color: crimson; font-size: x-large; text-align: center;"><b> &#8377;63,861</b></p>
+</div>
+<div>
+  <p style="color: blue ;font-size: x-large; text-align: center; border: 5px solid white; border: none; border-radius: 8px; margin: 50px; padding:10px ; background-color: skyblue; ">
+    <b>Specification</b> 
+  </p>
+  <div class="spec-grid">
+    <span>Driver: Hybrid (9 mm dynamic + balanced armature) Neodymium</span>
+    <span>Frequency Response: 3 Hz – 40,000 Hz</span>
+    <span>Impedance: 50 Ω (at 1 kHz, cable use)</span>
+    <span>Sensitivity: 99 dB/mW</span>
+    <span>Noise Cancellation: HD Noise Canceling Processor QN1, Dual Noise Sensor, Adaptive Sound Control, Ambient Sound Mode, Air Pressure Optimizer</span>
+    <span>Bluetooth v5.0 (2.4 GHz), range ~10 m; NFC one-touch pairing</span>
+    <span>Supported Codecs: SBC, AAC, LDAC</span>
+    <span>Battery Life (NC ON): ~10 h; Ambient mode: ~12 h; NC OFF: ~15 h</span>
+    <span>Rapid charge: 10 min → 80 min playback</span>
+    <span>Controls: In-line remote (volume/playback/NC), voice assistant support (Google/Alexa)</span>
+    <span>Wired Support: 3.5 mm analog input, USB-C charging</span>
+    <span>High-Res Audio: DSEE HX upscaling and wireless LDAC</span>
+    <span>Neckband Style: Flexible silicone; earbuds magnetic for tangle-free storage</span>
+    <span>Accessories Included: Carry case, USB-C cable, 3.5 mm cable, airplane adapter, multiple earbud tip sizes</span>
+  </div>
+</div>
+</form>
+<div class="btn">
+  <button onclick="addToCart()">Add To Cart</button>
+  <button onclick="buyNow()" style="width:250px;">Buy Now</button>
+</div>
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";    
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";    
+  dots[slideIndex-1].className += " active";
+}
+
+function addToCart() {
+  const product = {
+    name: document.getElementById("productName").innerText,
+    price: document.getElementById("productPrice").innerText,
+    image:document.getElementById("pImage").src,
+    page:"web51.html"
+  };
+
+  // Get existing items or start new
+  let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+  // Add current product
+  cart.push(product);
+
+  // Save back to localStorage
+  localStorage.setItem("cartItems", JSON.stringify(cart));
+  alert("Product added to cart!");
+}
+
+function buyNow() {
+  const product = {
+    names: "Sony WI-1000XM2",
+    prices: "₹63,861"
+  };
+  localStorage.setItem("selectedProduct", JSON.stringify(product));
+  window.location.href = "order.html";
+}
+</script>
+
+</body>
+</html>

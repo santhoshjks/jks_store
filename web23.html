@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mobile</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Verdana, sans-serif;
+    margin: 0;
+    background-color: black;
+  }
+  .mySlides {
+    display: none;
+  }
+  img {
+    margin-left: 25%;
+    height: auto;
+    width: auto;
+    text-align: center;
+  }
+
+  /* Slideshow container */
+  .slideshow-container {
+    max-width: 500px;
+    position: relative;
+    margin: auto;
+  }
+
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Number text (1/4 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+
+  .active,
+  .dot:hover {
+    background-color: orangered;
+  }
+
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #00a806;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  button:hover {
+    background-color:#005204 ;
+    transform: translateY(-4px);
+  }
+
+  #productName{
+  color: cadetblue;
+  text-align: center;
+  font-size: x-large;
+  margin: 8%;
+}
+
+/* New CSS for specification grid */
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  color: rgba(245, 222, 179, 0.836);
+  margin: 10% 5%;
+  font-size: 14px;
+  text-align: left;
+}
+.spec-grid span {
+  background-color: #1a1a1a;
+  padding: 10px;
+  border-radius: 5px;
+}
+</style>
+</head>
+<body style="max-width: 1000px; margin: 20px auto;">
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 4</div>
+      <img id="pImage" src="pic\samsung1.jpeg" style="width:50%;" />
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 4</div>
+      <img src="pic\samsung2.jpeg" style="width: 50%;" />
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 4</div>
+      <img src="pic\samsung3.jpeg" style="width: 50%;" />
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">4 / 4</div>
+      <img src="pic\samsung4.jpeg" style="width: 50%;" />
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+  </div>
+  <br />
+
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+  </div>
+  <form id="myForm">
+    <div id="product">
+      <p id="productName"><b>Samsung S24 Ultra</b></p>
+      <p id="productPrice" style="color: crimson; font-size: x-large; text-align: center;">
+        <b> &#8377;109,999</b>
+      </p>
+    </div>
+    <div>
+      <p style="color: blue ;font-size: x-large; text-align: center; border: 5px solid white; border: none; border-radius: 8px; margin: 50px; padding:10px ; background-color: skyblue; "><b>Specification:</b></p>
+      <div class="spec-grid">
+        <span>Display: 6.8″ Dynamic LTPO AMOLED 2X (120 Hz adaptive, HDR10+, peak ~2600 nits, Gorilla Armor anti‑reflective glass)</span>
+        <span>Resolution: 3120 × 1440 px (~505 ppi), flat display design (no curve)</span>
+        <span>Build: Titanium frame (Grade 2), Gorilla Armor front/back, IP68 water/dust resistance (up to 1.5 m / 30 min)</span>
+        <span>Dimensions & Weight: ~162.3 × 79 × 8.6 mm; ~232 g</span>
+        <span>Chipset: Snapdragon 8 Gen 3 (USA/China) or Exynos 2400 (other regions), Octa-core CPU (up to 3.39 GHz Cortex‑X4) & Adreno 750 GPU</span>
+        <span>OS: Android 14 with One UI 6.1 (Upgradeable to Android 15 / One UI 7)</span>
+        <span>RAM & Storage: 12 GB LPDDR5X RAM; 256 GB / 512 GB / 1 TB UFS 4.0 (non-expandable)</span>
+        <span>Rear Cameras: 200 MP main wide, 10 MP telephoto (3× zoom), 50 MP periscope telephoto (5× zoom), 12 MP ultrawide</span>
+        <span>Video Recording: 8K @ 24/30 fps; 4K @ 30/60/120 fps; 1080p up to 240fps; 720p @ 960fps; gyro-EIS</span>
+        <span>Front Camera: 12 MP, ƒ/2.2, Dual‑pixel PDAF; 4K @ 30/60 fps, 1080p @ 30 fps</span>
+        <span>Audio & Speakers: Stereo loudspeakers, 32‑bit/384 kHz audio playback, tuned by AKG; no headphone jack</span>
+        <span>Connectivity: 5G SA/NSA (Sub‑6 & mmWave depending on region), Wi‑Fi 7, Bluetooth 5.3, NFC, USB‑C 3.2 (DisplayPort 1.2, OTG), Ultra Wideband (UWB), Samsung DeX desktop mode</span>
+        <span>Extras: S Pen support (built‑in stylus), ProVisual Engine & Galaxy AI suite, Up to 7 years of OS/security updates</span>
+        <span>Battery & Charging: 5,000 mAh Li‑Ion, 45 W wired fast charging, 15 W wireless charging, reverse wireless charging</span>
+        
+      </div>
+    </div>
+  </form>
+
+  <div class="btn">
+    <button onclick="addToCart()">Add To Cart</button>
+    <button onclick="buyNow()" style="width: 250px;">Buy Now</button>
+  </div>
+
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides((slideIndex += n));
+    }
+
+    function currentSlide(n) {
+      showSlides((slideIndex = n));
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {
+        slideIndex = 1;
+      }
+      if (n < 1) {
+        slideIndex = slides.length;
+      }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+
+    function addToCart() {
+      const product = {
+        name: document.getElementById("productName").innerText,
+        price: document.getElementById("productPrice").innerText,
+        image: document.getElementById("pImage").src,
+        page: "web23.html",
+      };
+      let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+      cart.push(product);
+      localStorage.setItem("cartItems", JSON.stringify(cart));
+      alert("Product added to cart!");
+    }
+
+    function buyNow() {
+      const product = {
+        names: "Samsung S24 Ultra(Titanium yellow)",
+        prices: "₹109,999",
+      };
+      localStorage.setItem("selectedProduct", JSON.stringify(product));
+      window.location.href = "order.html";
+    }
+  </script>
+</body>
+</html>
