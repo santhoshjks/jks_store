@@ -1,161 +1,229 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Place Order</title>
+  <title>Place Order - JKS Store</title>
+  <link rel="stylesheet" href="webcss.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-  <style>
-    body {
-      background-color: black;
-      color: white;
-      font-family: Arial;
-      padding: 20px;
-      text-align: center;
-    }
-    input, select {
-      width: 340px;
-      padding: 10px;
-      margin: 5px 0;
-      border-radius: 5px;
-      border: none;
-    }
-    button {
-      background: #00a806;
-      color: white;
-      padding: 10px 15px;
-      margin-top: 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #005204;
-      transform: translateY(-4px);
-    }
-    strong {
-      color: crimson;
-    }
-    .overlay {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: linear-gradient(
-        135deg,
-        #000000,
-        #0d0d0d,
-        #1a1a1a,
-        #0d0d0d,
-        #000000
-      );
-      background-size: 400% 400%;
-      animation: overlayGradient 6s ease infinite;
-      backdrop-filter: blur(1px);
-    }
-
-    @keyframes overlayGradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Glowing spinner */
-    .spinner {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 60px;
-      height: 60px;
-      margin: -30px 0 0 -30px;
-      border: 6px solid rgba(255, 255, 255, 0.1);
-      border-top: 6px solid #00bfff;
-      border-radius: 50%;
-      animation: spin 1.2s ease-in-out infinite;
-      box-shadow: 0 0 12px #00bfff;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    /* Animated loading text */
-    .loading-text {
-      position: absolute;
-      top: 60%;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: Arial, sans-serif;
-      font-size: 18px;
-      color: #ffffff;
-      animation: pulse 2s infinite ease-in-out;
-      letter-spacing: 1px;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 0.5; }
-      50% { opacity: 1; }
-    }
-
-  </style>
 </head>
-<body style="max-width: 1000px; margin: 20px auto;">
-  <h2 style="color: rgb(0, 145, 202); font-size: xx-large;">Order Form</h2>
+<body>
 
-  <p><strong>Product Name:</strong> <span id="productName"></span></p>
-  <p><strong>Product Price:</strong> <span id="productPrice"></span></p>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <i class="fas fa-store"></i>
+        <span>JKS Store</span>
+      </div>
+      <div class="nav-actions">
+        <button id="cartBtn" class="cart-btn">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
 
-  <form id="orderForm">
-    <input type="text" name="firstName" placeholder="First Name" required><br>
-    <input type="text" name="lastName" placeholder="Last Name" required><br>
-    <input type="email" name="email" placeholder="Email" required><br>
-    <input type="text" name="street" placeholder="Street" required><br>
-    <input type="text" name="city" placeholder="City" required><br>
-    <input type="text" name="state" placeholder="State" required><br>
-    <input type="text" name="pincode" placeholder="Pincode" required><br>
-    <input type="tel" name="phone" placeholder="Phone Number" required><br>
-    <input type="tel" name="whatsapp" placeholder="WhatsApp Number" required><br>
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <i class="fas fa-chevron-right"></i>
+          <a href="cart.html">Cart</a>
+          <i class="fas fa-chevron-right"></i>
+          <span>Checkout</span>
+        </div>
+        <h1><i class="fas fa-shopping-bag"></i> Place Order</h1>
+        <p>Complete your purchase with secure checkout</p>
+      </div>
+    </section>
 
-    <select id="paymentMethod" required>
-      <option value="">-- Select Payment Method --</option>
-      <option value="upi">Google Pay / UPI</option>
-      <option value="cod">Cash on Delivery</option>
-    </select><br>
+    <section class="order-section">
+      <div class="container">
+        <div class="order-grid">
+          <!-- Order Summary -->
+          <div class="order-summary">
+            <h2>Order Summary</h2>
+            <div class="summary-card">
+              <div class="product-summary">
+                <h3>Product Details</h3>
+                <div class="product-item">
+                  <div class="product-info">
+                    <h4 id="productName">Loading...</h4>
+                    <p id="productPrice">Loading...</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="price-breakdown">
+                <div class="price-row">
+                  <span>Subtotal</span>
+                  <span id="subtotal">Loading...</span>
+                </div>
+                <div class="price-row">
+                  <span>Delivery</span>
+                  <span>FREE</span>
+                </div>
+                <div class="price-row total">
+                  <span>Total</span>
+                  <span id="totalPrice">Loading...</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
-    <button type="submit">Place Order</button>
+          <!-- Order Form -->
+          <div class="order-form">
+            <h2>Shipping Information</h2>
+            <form id="orderForm" class="checkout-form">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="firstName">First Name</label>
+                  <input type="text" id="firstName" name="firstName" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" id="lastName" name="lastName" required>
+                </div>
+                
+                <div class="form-group full-width">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group full-width">
+                  <label for="street">Street Address</label>
+                  <input type="text" id="street" name="street" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <input type="text" id="city" name="city" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="state">State</label>
+                  <input type="text" id="state" name="state" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="pincode">PIN Code</label>
+                  <input type="text" id="pincode" name="pincode" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="whatsapp">WhatsApp Number</label>
+                  <input type="tel" id="whatsapp" name="whatsapp" required>
+                </div>
+              </div>
 
-  </form>
+              <div class="payment-section">
+                <h3>Payment Method</h3>
+                <div class="payment-options">
+                  <label class="payment-option">
+                    <input type="radio" name="paymentMethod" value="upi" required>
+                    <div class="payment-card">
+                      <i class="fas fa-mobile-alt"></i>
+                      <div>
+                        <strong>UPI / Google Pay</strong>
+                        <p>Pay instantly using UPI apps</p>
+                      </div>
+                    </div>
+                  </label>
+                  
+                  <label class="payment-option">
+                    <input type="radio" name="paymentMethod" value="cod" required>
+                    <div class="payment-card">
+                      <i class="fas fa-money-bill-wave"></i>
+                      <div>
+                        <strong>Cash on Delivery</strong>
+                        <p>Pay when you receive your order</p>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
 
-  <p id="response"></p>
+              <button type="submit" class="btn-primary">
+                <i class="fas fa-lock"></i>
+                Place Secure Order
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Loading Overlay -->
   <div class="overlay" id="loaderOverlay">
     <div class="spinner"></div>
-    <div class="loading-text"></div>
+    <div class="loading-text">Processing your order...</div>
   </div>
 
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 JKS Store. All rights reserved. | Premium Electronics Store</p>
+    </div>
+  </footer>
 
   <script>
     // Load product details
     const product = JSON.parse(localStorage.getItem("selectedProduct")) || {};
     document.getElementById("productName").textContent = product.names || "N/A";
     document.getElementById("productPrice").textContent = product.prices || "N/A";
+    document.getElementById("subtotal").textContent = product.prices || "N/A";
+    document.getElementById("totalPrice").textContent = product.prices || "N/A";
+
+    // Cart functionality
+    document.getElementById('cartBtn').addEventListener('click', () => {
+      window.location.href = 'cart.html';
+    });
+
+    // Update cart count
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+      const cartCountElement = document.querySelector(".cart-count");
+      if (cartCountElement) {
+        cartCountElement.textContent = cart.length;
+        cartCountElement.style.display = cart.length > 0 ? 'flex' : 'none';
+      }
+    }
+
+    // Scroll effect for navbar
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 100) {
+        navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+        navbar.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
+      } else {
+        navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+        navbar.style.boxShadow = 'none';
+      }
+    });
 
     // Handle order submission
     document.getElementById("orderForm").addEventListener("submit", function(e) {
-      document.getElementById("loaderOverlay").style.display = "block";
-
-// Simulate delay before redirect
-
       e.preventDefault();
-
-      const paymentMethod = document.getElementById("paymentMethod").value;
+      
+      const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
       if (!paymentMethod) {
         alert("Please select a payment method.");
         return;
       }
+
+      document.getElementById("loaderOverlay").style.display = "block";
 
       const formData = new FormData(this);
       const userData = {};
@@ -165,17 +233,15 @@
         ...userData,
         productName: product.names,
         productPrice: product.prices,
-        paymentMethod: paymentMethod
+        paymentMethod: paymentMethod.value
       };
 
-      if (paymentMethod === "cod") {
+      if (paymentMethod.value === "cod") {
         submitOrder(orderData);
-      } else if (paymentMethod === "upi") {
+      } else if (paymentMethod.value === "upi") {
         payWithRazorpay(orderData);
       }
-      
     });
-    
 
     function submitOrder(orderData) {
       fetch('https://script.google.com/macros/s/AKfycbw3es5NjAk-531UbP5YRECQAJ8aRUr9CSc0Ad7eB8V-T-vTF5CDJ0zGqdLGkr2IWGbU/exec', {
@@ -186,28 +252,26 @@
           'Content-Type': 'application/json'
         }
       })
-      
       .then(() => {
-        
         document.getElementById("orderForm").reset();
         localStorage.removeItem("cartItems");
         localStorage.removeItem("selectedProduct");
         setTimeout(() => {
-  window.location.href = "placed.html"; 
-}, 5000);
+          window.location.href = "placed.html"; 
+        }, 5000);
       })
       .catch(() => {
-       
-        alert("Failed to place order,check your internet connection.");
+        alert("Failed to place order, check your internet connection.");
+        document.getElementById("loaderOverlay").style.display = "none";
       });
     }
 
     function payWithRazorpay(orderData) {
       const options = {
-        "key": "rzp_test_YourKeyHere", // Replace with your Razorpay test/live key
-        "amount": parseInt(orderData.productPrice) * 100, 
+        "key": "rzp_test_YourKeyHere",
+        "amount": parseInt(orderData.productPrice.replace(/[^\d]/g, '')) * 100, 
         "currency": "INR",
-        "name": "Your Store",
+        "name": "JKS Store",
         "description": "Order Payment",
         "handler": function (response) {
           orderData.razorpay_payment_id = response.razorpay_payment_id;
@@ -219,7 +283,7 @@
           "contact": orderData.phone
         },
         "theme": {
-          "color": "#0f9d58"
+          "color": "#2563eb"
         },
         "method": {
           "upi": true,
@@ -230,6 +294,10 @@
       const rzp = new Razorpay(options);
       rzp.open();
     }
+
+    // Initialize
+    updateCartCount();
   </script>
+
 </body>
 </html>

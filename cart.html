@@ -1,151 +1,220 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Cart</title>
-  <style>
-    body {
-      background-color: black;
-      color: white;
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 10px;
-    }
-
-    h1 {
-      text-align: center;
-      color: orangered;
-    }
-
-    .cart-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: #1c1c1c;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 10px;
-    }
-
-    .cart-item img {
-      width: 100px;
-      height: auto;
-      border-radius: 5px;
-      margin-right: 20px;
-    }
-
-    .details {
-      flex: 1;
-    }
-
-    .details h2 {
-      margin: 0;
-      font-size: 20px;
-      color: aquamarine;
-    }
-
-    .details p {
-      color: crimson;
-      font-size: 18px;
-    }
-
-    .remove-btn {
-      background-color: red;
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .remove-btn:hover {
-      background-color: darkred;
-      transform: translateY(-2px);
-    }
-
-    .proceed-btn {
-      display: block;
-      width: 200px;
-      margin: 30px auto;
-      padding: 12px;
-      font-size: 18px;
-      background-color: #00a806;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    .proceed-btn:hover {
-      background-color: #005204;
-      transform: translateY(-4px);
-    }
-  </style>
+  <title>Shopping Cart - JKS Store</title>
+  <link rel="stylesheet" href="webcss.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body style="max-width:1000px; margin: 20px auto;">
-  <h1>Your Cart</h1>
-  <div id="cartContainer"></div>
+<body>
 
-  <button class="proceed-btn" onclick="proceedToOrder()">Proceed</button>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <i class="fas fa-store"></i>
+        <span>JKS Store</span>
+      </div>
+      <div class="nav-actions">
+        <button id="cartBtn" class="cart-btn">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
 
-  <script>
-    const cartContainer = document.getElementById("cartContainer");
-    let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <i class="fas fa-chevron-right"></i>
+          <span>Shopping Cart</span>
+        </div>
+        <h1><i class="fas fa-shopping-cart"></i> Shopping Cart</h1>
+        <p>Review your selected items before checkout</p>
+      </div>
+    </section>
 
-    function displayCart() {
-      cartContainer.innerHTML = "";
-
-      if (cart.length === 0) {
-        cartContainer.innerHTML = "<p style='text-align:center;'>Your cart is empty.</p>";
-        document.querySelector(".proceed-btn").style.display = "none";
-        return;
-      }
-
-      cart.forEach((item, index) => {
-        const div = document.createElement("div");
-        div.className = "cart-item";
-        div.innerHTML = `
-          <img src="${item.image}" alt="${item.name}" style="cursor:pointer;" onclick="window.location.href='${item.page}'">
-          <div class="details">
-            <h2>${item.name}</h2>
-            <p>${item.price}</p>
+    <section class="cart-section">
+      <div class="container">
+        <div class="cart-grid">
+          <!-- Cart Items -->
+          <div class="cart-items">
+            <div id="cartContainer"></div>
+            
+            <!-- Empty Cart Message -->
+            <div id="emptyCart" class="empty-cart" style="display: none;">
+              <div class="empty-cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+              <h2>Your cart is empty</h2>
+              <p>Looks like you haven't added any items to your cart yet.</p>
+              <a href="index.html" class="btn-primary">
+                <i class="fas fa-arrow-left"></i>
+                Continue Shopping
+              </a>
+            </div>
           </div>
-          <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
-        `;
-        cartContainer.appendChild(div);
-      });
+
+          <!-- Cart Summary -->
+          <div class="cart-summary">
+            <div class="summary-card">
+              <h2>Order Summary</h2>
+              <div class="summary-content">
+                <div class="summary-row">
+                  <span>Subtotal (<span id="itemCount">0</span> items)</span>
+                  <span id="subtotal">₹0</span>
+                </div>
+                <div class="summary-row">
+                  <span>Delivery</span>
+                  <span>FREE</span>
+                </div>
+                <div class="summary-row total">
+                  <span>Total</span>
+                  <span id="total">₹0</span>
+                </div>
+              </div>
+              <button id="proceedBtn" class="btn-primary" onclick="proceedToOrder()">
+                <i class="fas fa-lock"></i>
+                Proceed to Checkout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+<script>
+  const cartContainer = document.getElementById("cartContainer");
+  const emptyCart = document.getElementById("emptyCart");
+  const proceedBtn = document.getElementById("proceedBtn");
+  const itemCount = document.getElementById("itemCount");
+  const subtotal = document.getElementById("subtotal");
+  const total = document.getElementById("total");
+  
+  let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+  function displayCart() {
+    cartContainer.innerHTML = "";
+
+    if (cart.length === 0) {
+      cartContainer.style.display = "none";
+      emptyCart.style.display = "block";
+      proceedBtn.style.display = "none";
+      updateSummary();
+      return;
     }
 
-    function removeFromCart(index) {
-      cart.splice(index, 1);
-      localStorage.setItem("cartItems", JSON.stringify(cart));
-      displayCart();
-    }
+    cartContainer.style.display = "block";
+    emptyCart.style.display = "none";
+    proceedBtn.style.display = "block";
 
-    
-    
-    function proceedToOrder() {
-  if (cart.length === 0) {
-    alert("Cart is empty!");
-    return;
+    cart.forEach((item, index) => {
+      const cartItem = document.createElement("div");
+      cartItem.className = "cart-item";
+      cartItem.innerHTML = `
+        <div class="cart-item-image">
+          <img src="${item.image}" alt="${item.name}" onclick="window.location.href='${item.page}'">
+        </div>
+        <div class="cart-item-details">
+          <h3>${item.name}</h3>
+          <p class="price">${item.price}</p>
+        </div>
+        <button class="remove-btn" onclick="removeFromCart(${index})">
+          <i class="fas fa-trash"></i>
+        </button>
+      `;
+      cartContainer.appendChild(cartItem);
+    });
+
+    updateSummary();
   }
 
-  const productNames = cart.map(item => item.name).join(", ");
-  const productPrices = cart.map(item => item.price).join(", ");
-
-  const combinedProduct = {
-    names: productNames,
-    prices: productPrices
-  };
-
-  localStorage.setItem("selectedProduct", JSON.stringify(combinedProduct));
-  window.location.href = "order.html";
-}
+  function updateSummary() {
+    const count = cart.length;
+    itemCount.textContent = count;
     
+    if (count === 0) {
+      subtotal.textContent = "₹0";
+      total.textContent = "₹0";
+      return;
+    }
 
+    // Calculate total (simplified - you may need price parsing logic)
+    let totalAmount = 0;
+    cart.forEach(item => {
+      const price = parseInt(item.price.replace(/[^\d]/g, '')) || 0;
+      totalAmount += price;
+    });
+    
+    subtotal.textContent = `₹${totalAmount.toLocaleString()}`;
+    total.textContent = `₹${totalAmount.toLocaleString()}`;
+  }
+
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    localStorage.setItem("cartItems", JSON.stringify(cart));
     displayCart();
-  </script>
+    updateCartCount();
+  }
+
+  function proceedToOrder() {
+    if (cart.length === 0) {
+      alert("Cart is empty!");
+      return;
+    }
+
+    const productNames = cart.map(item => item.name).join(", ");
+    const productPrices = cart.map(item => item.price).join(", ");
+
+    const combinedProduct = {
+      names: productNames,
+      prices: productPrices
+    };
+
+    localStorage.setItem("selectedProduct", JSON.stringify(combinedProduct));
+    window.location.href = "order.html";
+  }
+
+  // Cart functionality
+  document.getElementById('cartBtn').addEventListener('click', () => {
+    window.location.href = 'cart.html';
+  });
+
+  // Update cart count
+  function updateCartCount() {
+    const cartCountElement = document.querySelector(".cart-count");
+    if (cartCountElement) {
+      cartCountElement.textContent = cart.length;
+      cartCountElement.style.display = cart.length > 0 ? 'flex' : 'none';
+    }
+  }
+
+  // Scroll effect for navbar
+  window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 100) {
+      navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+      navbar.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
+    } else {
+      navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+      navbar.style.boxShadow = 'none';
+    }
+  });
+
+  // Initialize
+  displayCart();
+  updateCartCount();
+</script>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 JKS Store. All rights reserved. | Premium Electronics Store</p>
+    </div>
+  </footer>
 </body>
 </html>

@@ -1,231 +1,177 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mobile</title>
-<style>
-* {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
-.mySlides {display: none}
-img {text-align: center;}
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 500px;
-  position: relative;
-  margin: auto;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-  background-color: orangered;
-}
-
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-body{
-  background-color: black;
-}
-
-img{
-    margin-left: 10%;
-    height: auto;
-    width: auto;
-}
-.btn{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 18px;
-  background-color: #00a806;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-button:hover {
-  background-color: #005204;
-  transform: translateY(-4px);
-}
-#productName{
-  color: cadetblue;
-  text-align: center;
-  font-size: x-large;
-  margin: 8%;
-}
-
-/* New CSS for specification grid */
-.spec-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  color: rgba(245, 222, 179, 0.836);
-  margin: 10% 5%;
-  font-size: 14px;
-  text-align: left;
-}
-.spec-grid span {
-  background-color:#1a1a1a;
-  padding: 10px;
-  border-radius: 5px;
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vivo X200 Pro - JKS Store</title>
+  <link rel="stylesheet" href="webcss.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body style="max-width: 1000px; margin: 20px auto;" >
-
-<div class="slideshow-container">
-  <div class="mySlides fade">
-    <div class="numbertext">1 / 7</div>
-    <img id="pImage" src="pic\v3.jpeg" style="width:80%;">
-  </div>
-
-  <div class="mySlides fade">
-    <div class="numbertext">2 / 7</div>
-    <img src="pic\v5.jpeg" style="width: 80%;">
-  </div>
-
-  <div class="mySlides fade">
-    <div class="numbertext">3 / 7</div>
-    <img src="pic\v4.jpeg" style="width: 80%;">
-  </div>
-
-  <div class="mySlides fade">
-    <div class="numbertext">4 / 7</div>
-    <img src="pic\v1.jpeg" style="width: 80%;">
-  </div>
-
-  <div class="mySlides fade">
-    <div class="numbertext">5 / 7</div>
-    <img src="pic\v2.jpeg" style="width: 80%;">
-  </div>
-
-  <div class="mySlides fade">
-    <div class="numbertext">6 / 7</div>
-    <img src="pic\v6.jpeg" style="width: 80%;">
-  </div>
-
-  <div class="mySlides fade">
-    <div class="numbertext">7 / 7</div>
-    <img src="pic\v7.jpeg" style="width: 80%;">
-  </div>
-  <a class="prev" onclick="plusSlides(-1)">❮</a>
-  <a class="next" onclick="plusSlides(1)">❯</a>
-</div>
-<br>
-
-<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span> 
-  <span class="dot" onclick="currentSlide(2)"></span> 
-  <span class="dot" onclick="currentSlide(3)"></span>
-  <span class="dot" onclick="currentSlide(4)"></span> 
-  <span class="dot" onclick="currentSlide(5)"></span> 
-  <span class="dot" onclick="currentSlide(6)"></span> 
-  <span class="dot" onclick="currentSlide(7)"></span> 
-</div>
-
-<form id="myForm">
-  <div id="product">
-    <p id="productName"><b>Vivo X200 Pro</b></p>
-    <p id="productPrice" style="color: crimson; font-size: x-large; text-align: center;"><b> &#8377;94999</b></p>
-  </div>
-  <div>
-    <p style="color: blue ;font-size: x-large; text-align: center; border: 5px solid white; border: none; border-radius: 8px; margin: 50px; padding:10px ; background-color: skyblue; ">
-      <b>Specification</b> 
-    </p>
-    <div class="spec-grid">
-      <span>Display: 6.78″ Quad‑curved LTPO AMOLED (1260 × 2800 px FHD+, ~452 ppi), 120 Hz adaptive refresh, HDR10+, Dolby Vision, peak brightness 4,500 nits (0.1‑120 Hz)</span>
-      <span>Chipset: MediaTek Dimensity 9400 (3 nm), octa‑core CPU: 1×3.63 GHz Cortex‑X925 + 3×3.3 GHz Cortex‑X4 + 4×2.4 GHz Cortex‑A720; GPU: Immortalis‑G925</span>
-      <span>Memory & Storage: 16 GB LPDDR5X RAM; 512 GB or 1 TB UFS 4.0 storage; no expandable storage</span>
-      <span>Operating System: Android 15 with Funtouch OS 15 (OriginOS 5 in select regions)</span>
-      <span>Rear Cameras: Triple-camera system with ZEISS optics: 50 MP main (Sony LYT‑818, f/1.57, OIS, PDAF), 50 MP ultra-wide (f/2.0, autofocus, 119° FoV), 200 MP periscope telephoto (ISOCELL HP9 sensor, f/2.67, OIS, 3.7× optical zoom, macro support)</span>
-      <span>Front Camera: 32 MP (f/2.0, ultra‑wide lens), supports 4K video recording at up to 60 fps</span>
-      <span>Video: Rear: 8K @ 30 fps, 4K up to 120 fps (10‑bit HDR, gyro-EIS, Cinematic Portrait); Front: 4K @ 60 fps, 1080p @ 60 fps</span>
-      <span>Battery: 6,000 mAh (typical, global); some European (Austria/Hungary) variants use 5,200 mAh; supports 90 W wired FlashCharge, 30 W wireless charging (in selected regions), reverse wired charging; semi-solid silicon‑anode battery rated to operate down to –20 °C</span>
-      <span>Build & Durability: Dimensions ~162.36 × 75.95 × 8.2–8.49 mm; weight ~223–228 g depending on finish; IP68 & IP69 water/dust resistance; glass or glass‑fiber back, premium metal frame; ultrasonic under‑display fingerprint sensor; stereo speakers; optional satellite connectivity support</span>
-      <span>Connectivity: 5G (Sub‑6 & mmWave), dual SIM (Nano), Wi‑Fi 6/7, Bluetooth 5.4 (aptX HD, LHDC), NFC, infrared blaster, USB‑C 3.2 Gen1 (OTG), GPS (A-GPS, BeiDou, GLONASS, Galileo, NavIC), OTG, Bluetooth, no headphone jack</span>
-      <span>Extras & Imaging: V3+ imaging chip for advanced IA processing; Zeiss T* lens coatings; second‑generation framing features like Full Focal‑Range 4K LOG video, telephoto macro, SuperLandscape, Portrait Video; high‑frequency PWM dimming display optimized for eye care</span>
-      <span>Availability & Pricing (India): 16/512 GB at ₹87,990; 16/1 TB at ₹94,999</span>
+<body>
+  <nav class="navbar"></nav>
+    <div class="nav-container">
+      <div class="nav-brand">
+        <i class="fas fa-store"></i>
+        <span>JKS Store</span>
+      </div>
+      <div class="nav-actions">
+        <button id="cartBtn" class="cart-btn">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </button>
+      </div>
     </div>
-  </div>
-</form>
+  </nav>
 
-<div class="btn">
-  <button  onclick="addToCart()" >Add To Cart</button>
-  <button  onclick="buyNow()" style="width:250px;">Buy Now</button>
-</div>
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <i class="fas fa-chevron-right"></i>
+          <a href="web2.html">Mobiles</a>
+          <i class="fas fa-chevron-right"></i>
+          <span>Vivo X200 Pro</span>
+        </div>
+        <h1><i class="fas fa-mobile-alt"></i> Vivo X200 Pro</h1>
+        <p>Premium flagship smartphone with cutting-edge technology</p>
+      </div>
+    </section>
+
+    <section class="product-detail">
+      <div class="container">
+        <div class="product-showcase">
+          <!-- Product Gallery -->
+          <div class="product-gallery">
+            <div class="slideshow-container">
+              <div class="slide active">
+                <img src="pic/v3.jpeg" alt="Vivo X200 Pro - Front View">
+              </div>
+              <div class="slide">
+                <img src="pic/v5.jpeg" alt="Vivo X200 Pro - Side View">
+              </div>
+              <div class="slide">
+                <img src="pic/v4.jpeg" alt="Vivo X200 Pro - Back View">
+              </div>
+              <div class="slide">
+                <img src="pic/v1.jpeg" alt="Vivo X200 Pro - Angle View">
+              </div>
+              <div class="slide">
+                <img src="pic/v2.jpeg" alt="Vivo X200 Pro - Detail View">
+              </div>
+              <div class="slide">
+                <img src="pic/v6.jpeg" alt="Vivo X200 Pro - Camera View">
+              </div>
+              <div class="slide">
+                <img src="pic/v7.jpeg" alt="Vivo X200 Pro - Box View">
+              </div>
+              <button class="slideshow-nav slideshow-prev" onclick="plusSlides(-1)">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="slideshow-nav slideshow-next" onclick="plusSlides(1)">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+            <div class="slideshow-dots">
+              <span class="dot active" onclick="currentSlide(1)"></span>
+              <span class="dot" onclick="currentSlide(2)"></span>
+              <span class="dot" onclick="currentSlide(3)"></span>
+              <span class="dot" onclick="currentSlide(4)"></span>
+              <span class="dot" onclick="currentSlide(5)"></span>
+              <span class="dot" onclick="currentSlide(6)"></span>
+              <span class="dot" onclick="currentSlide(7)"></span>
+            </div>
+          </div>
+
+          <!-- Product Information -->
+          <div class="product-info">
+            <h2 class="product-title">Vivo X200 Pro</h2>
+            <p class="product-price">₹94,999</p>
+            <p class="product-description">
+              Experience the future with Vivo X200 Pro, featuring a stunning 6.78" Quad-curved LTPO AMOLED display, powerful MediaTek Dimensity 9400 chipset, and professional-grade camera system with ZEISS optics.
+            </p>
+            
+            <div class="product-actions">
+              <button class="btn-primary" onclick="addToCart()">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+              <button class="btn-secondary" onclick="buyNow()">
+                <i class="fas fa-bolt"></i>
+                Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specifications Section -->
+    <section class="specifications">
+      <div class="container">
+        <h2>Technical Specifications</h2>
+        <div class="spec-grid">
+          <div class="spec-item">
+            <h3>Display</h3>
+            <p>6.78″ Quad‑curved LTPO AMOLED (1260 × 2800 px FHD+, ~452 ppi), 120 Hz adaptive refresh, HDR10+, Dolby Vision, peak brightness 4,500 nits (0.1‑120 Hz)</p>
+          </div>
+          <div class="spec-item">
+            <h3>Chipset</h3>
+            <p>MediaTek Dimensity 9400 (3 nm), octa‑core CPU: 1×3.63 GHz Cortex‑X925 + 3×3.3 GHz Cortex‑X4 + 4×2.4 GHz Cortex‑A720; GPU: Immortalis‑G925</p>
+          </div>
+          <div class="spec-item">
+            <h3>Memory & Storage</h3>
+            <p>16 GB LPDDR5X RAM; 512 GB or 1 TB UFS 4.0 storage; no expandable storage</p>
+          </div>
+          <div class="spec-item">
+            <h3>Operating System</h3>
+            <p>Android 15 with Funtouch OS 15 (OriginOS 5 in select regions)</p>
+          </div>
+          <div class="spec-item">
+            <h3>Rear Cameras</h3>
+            <p>Triple-camera system with ZEISS optics: 50 MP main (Sony LYT‑818, f/1.57, OIS, PDAF), 50 MP ultra-wide (f/2.0, autofocus, 119° FoV), 200 MP periscope telephoto (ISOCELL HP9 sensor, f/2.67, OIS, 3.7× optical zoom, macro support)</p>
+          </div>
+          <div class="spec-item">
+            <h3>Front Camera</h3>
+            <p>32 MP (f/2.0, ultra‑wide lens), supports 4K video recording at up to 60 fps</p>
+          </div>
+          <div class="spec-item">
+            <h3>Video</h3>
+            <p>Rear: 8K @ 30 fps, 4K up to 120 fps (10‑bit HDR, gyro-EIS, Cinematic Portrait); Front: 4K @ 60 fps, 1080p @ 60 fps</p>
+          </div>
+          <div class="spec-item">
+            <h3>Battery</h3>
+            <p>6,000 mAh (typical, global); some European variants use 5,200 mAh; supports 90 W wired FlashCharge, 30 W wireless charging, reverse wired charging; semi-solid silicon‑anode battery rated to operate down to –20 °C</p>
+          </div>
+          <div class="spec-item">
+            <h3>Build & Durability</h3>
+            <p>Dimensions ~162.36 × 75.95 × 8.2–8.49 mm; weight ~223–228 g; IP68 & IP69 water/dust resistance; glass or glass‑fiber back, premium metal frame; ultrasonic under‑display fingerprint sensor; stereo speakers; optional satellite connectivity support</p>
+          </div>
+          <div class="spec-item">
+            <h3>Connectivity</h3>
+            <p>5G (Sub‑6 & mmWave), dual SIM (Nano), Wi‑Fi 6/7, Bluetooth 5.4 (aptX HD, LHDC), NFC, infrared blaster, USB‑C 3.2 Gen1 (OTG), GPS (A-GPS, BeiDou, GLONASS, Galileo, NavIC), OTG, Bluetooth, no headphone jack</p>
+          </div>
+          <div class="spec-item">
+            <h3>Extras & Imaging</h3>
+            <p>V3+ imaging chip for advanced AI processing; Zeiss T* lens coatings; second‑generation framing features like Full Focal‑Range 4K LOG video, telephoto macro, SuperLandscape, Portrait Video; high‑frequency PWM dimming display optimized for eye care</p>
+          </div>
+          <div class="spec-item">
+            <h3>Availability & Pricing</h3>
+            <p>16/512 GB at ₹87,990; 16/1 TB at ₹94,999</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 JKS Store. All rights reserved. | Premium Electronics Store</p>
+    </div>
+  </footer>
 
 <script>
 let slideIndex = 1;
@@ -241,42 +187,109 @@ function currentSlide(n) {
 
 function showSlides(n) {
   let i;
-  let slides = document.getElementsByClassName("mySlides");
+  let slides = document.getElementsByClassName("slide");
   let dots = document.getElementsByClassName("dot");
   if (n > slides.length) {slideIndex = 1}    
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
+    slides[i].classList.remove("active");  
   }
   for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
+    dots[i].classList.remove("active");
   }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
+  slides[slideIndex-1].classList.add("active");  
+  dots[slideIndex-1].classList.add("active");
 }
 
 function addToCart() {
   const product = {
-    name: document.getElementById("productName").innerText,
-    price: document.getElementById("productPrice").innerText,
-    image:document.getElementById("pImage").src,
-    page:"web21.html"
+    name: "Vivo X200 Pro",
+    price: "₹94,999",
+    image: "pic/v3.jpeg",
+    page: "web21.html"
   };
   let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
   cart.push(product);
   localStorage.setItem("cartItems", JSON.stringify(cart));
-  alert("Product added to cart!");
   
+  // Update cart count
+  updateCartCount();
+  
+  // Show success message
+  showNotification("Product added to cart!");
 }
 
 function buyNow() {
   const product = {
-    names: "vivo x200 pro(white)",
-    prices: "₹94000"
+    names: "Vivo X200 Pro",
+    prices: "₹94,999"
   };
   localStorage.setItem("selectedProduct", JSON.stringify(product));
   window.location.href = "order.html";
 }
+
+// Cart functionality
+document.getElementById('cartBtn').addEventListener('click', () => {
+  window.location.href = 'cart.html';
+});
+
+// Update cart count
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const cartCountElement = document.querySelector(".cart-count");
+  if (cartCountElement) {
+    cartCountElement.textContent = cart.length;
+    cartCountElement.style.display = cart.length > 0 ? 'flex' : 'none';
+  }
+}
+
+// Show notification
+function showNotification(message) {
+  const notification = document.createElement('div');
+  notification.className = 'notification';
+  notification.textContent = message;
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  `;
+  
+  document.body.appendChild(notification);
+  
+  setTimeout(() => {
+    notification.style.transform = 'translateX(0)';
+  }, 100);
+  
+  setTimeout(() => {
+    notification.style.transform = 'translateX(100%)';
+    setTimeout(() => {
+      document.body.removeChild(notification);
+    }, 300);
+  }, 3000);
+}
+
+// Scroll effect for navbar
+window.addEventListener('scroll', () => {
+  const navbar = document.querySelector('.navbar');
+  if (window.scrollY > 100) {
+    navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+    navbar.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
+  } else {
+    navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+    navbar.style.boxShadow = 'none';
+  }
+});
+
+// Initialize
+updateCartCount();
 </script>
 
 </body>

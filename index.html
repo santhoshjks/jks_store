@@ -3,110 +3,190 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ECommerce</title>
+  <title>JKS Store - Premium Electronics</title>
   <link rel="stylesheet" href="webcss.css">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body style="max-width:1000px; margin: 20px auto;">
+<body>
 
-  <header>
-    <b><em>JKS Store</em></b>
-  </header>
-
-  <section class="search-container">
-    <div class="cart-container">
-      <img id="cart" src="pic/cart.jpeg" alt="Cart">
-      
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <i class="fas fa-store"></i>
+        <span>JKS Store</span>
+      </div>
+      <div class="nav-actions">
+        <button id="cartBtn" class="cart-btn">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </button>
+      </div>
     </div>
-    <input type="text" id="searchBar" placeholder="Search for products">
-    <button id="clearBtn" class="clear-btn">&times;</button>
-    <button type="submit" id="searchBtn">Search</button>
-  </section>
+  </nav>
 
-  <div id="productList"></div>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Premium Electronics Store</h1>
+        <p>Discover the latest in technology with our curated selection of mobiles, laptops, TVs, and accessories</p>
+      </div>
+    </section>
 
-  <div class="img-container">
-    <div class="img-card">
-      <img id="img1" src="pic/mobile.jpeg" alt="Mobile">
-    
+    <section class="search-section">
+      <div class="search-container">
+        <div class="search-wrapper">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="searchBar" placeholder="Search for products...">
+          <button id="clearBtn" class="clear-btn" style="display: none;">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <button id="searchBtn" class="search-btn">
+          <i class="fas fa-search"></i>
+          Search
+        </button>
+      </div>
+      <div id="productList" class="search-results"></div>
+    </section>
+
+    <section class="categories">
+      <h2>Shop by Category</h2>
+      <div class="category-grid">
+        <div class="category-card" data-category="mobile">
+          <div class="category-image">
+            <img src="pic/mobile.jpeg" alt="Mobile">
+            <div class="category-overlay">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+          </div>
+          <h3>Mobile Phones</h3>
+          <p>Latest smartphones and flagship devices</p>
+        </div>
+        <div class="category-card" data-category="laptop">
+          <div class="category-image">
+            <img src="pic/laptop.jpeg" alt="Laptop">
+            <div class="category-overlay">
+              <i class="fas fa-laptop"></i>
+            </div>
+          </div>
+          <h3>Laptops</h3>
+          <p>High-performance computing solutions</p>
+        </div>
+        <div class="category-card" data-category="tv">
+          <div class="category-image">
+            <img src="pic/tv.jpeg" alt="Television">
+            <div class="category-overlay">
+              <i class="fas fa-tv"></i>
+            </div>
+          </div>
+          <h3>Televisions</h3>
+          <p>Premium display technology</p>
+        </div>
+        <div class="category-card" data-category="accessories">
+          <div class="category-image">
+            <img src="pic/accesories.jpeg" alt="Accessories">
+            <div class="category-overlay">
+              <i class="fas fa-headphones"></i>
+            </div>
+          </div>
+          <h3>Accessories</h3>
+          <p>Essential tech accessories</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="container">
+        <h2>About JKS Store</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p>JKS Store is your one-stop destination for the latest electronics and accessories. We bring together a wide range of high-quality products including mobiles, laptops, televisions, and smart accessories at competitive prices. Our mission is to make technology accessible, reliable, and affordable for everyone.</p>
+            <div class="values">
+              <div class="value-item">
+                <i class="fas fa-award"></i>
+                <h3>Quality Products</h3>
+                <p>Only trusted and genuine brands</p>
+              </div>
+              <div class="value-item">
+                <i class="fas fa-tag"></i>
+                <h3>Affordable Pricing</h3>
+                <p>Best value for your money</p>
+              </div>
+              <div class="value-item">
+                <i class="fas fa-smile"></i>
+                <h3>Customer Satisfaction</h3>
+                <p>Dedicated support for smooth shopping</p>
+              </div>
+              <div class="value-item">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Innovation</h3>
+                <p>Latest trends in technology</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="showcase">
+      <div class="container">
+        <h2>Experience Our Store</h2>
+        <div class="video-wrapper">
+          <video controls autoplay muted loop>
+            <source src="pic/svideo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact">
+      <div class="container">
+        <h2>Get in Touch</h2>
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <h3>Visit Our Store</h3>
+              <p>JKS Company Pvt. Ltd<br>
+              3/15 Pillaiyar Kovil Street,<br>
+              Anna Nagar, Chennai-600028,<br>
+              Tamil Nadu, India</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <h3>Call Us</h3>
+              <p>+91 8686757575</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h3>Email Us</h3>
+              <p>jksstore345@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-linkedin"></i>
+            <div>
+              <h3>Connect</h3>
+              <p>linkedin.com/in/santhoshjks</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 JKS Store. All rights reserved. | Premium Electronics Store</p>
     </div>
-    <div class="img-card">
-      <img id="img2" src="pic/laptop.jpeg" alt="Laptop">
-    
-    </div>
-    <div class="img-card">
-      <img id="img3" src="pic/tv.jpeg" alt="Television">
-    
-    </div>
-    <div class="img-card">
-      <img id="img4" src="pic/accesories.jpeg" alt="Accessories">
-    
-    </div>
-  </div>
-  <div class="about">
-    <p class="contact" >
-        <b>About Us</b>
-    </p>
-    <div class="spec-grid">
-  <p>
-    JKS Store is your one-stop destination for the latest electronics and accessories. We bring together a wide range of high-quality products including mobiles, laptops, televisions, and smart accessories at competitive prices. Our mission is to make technology accessible, reliable, and affordable for everyone.
-
-At JKS Store, we believe in:<br><br>
-
- ~ Quality Products – Only trusted and genuine brands.<br>
-
-~ Affordable Pricing – Best value for your money.<br>
-
-~ Customer Satisfaction – Dedicated support for a smooth shopping experience.<br>
-
- ~Innovation – Continuously updating with the latest trends in tech.
-  </p>
-</div>
-</div>
-  <video controls autoplay muted loop width="100%">
-    <source src="pic/svideo.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-
-  <div class="contact">
-    <p><b>Contact Details</b></p>
-  </div>
-
-  <div class="info">
-    <p>
-      <b>
-        Address: JKS Company Pvt. Ltd<br>
-        3/15 Pillaiyar Kovil Street,<br>
-        Anna Nagar, Chennai-600028,<br>
-        Tamil Nadu, India<br><br>
-        Contact: 8686757575<br>
-        Email: jksstore345@gmail.com<br>
-        LinkedIn: <strong>santhoshjks</strong>
-      </b>
-    </p>
-  </div>
+  </footer>
 
   <script src="webjs.js"></script>
-
-  <script>
-    document.getElementById("img1").addEventListener("click", function () {
-      window.location.href = "web2.html";
-    });
-    document.getElementById("img2").addEventListener("click", function () {
-      window.location.href = "web3.html";
-    });
-    document.getElementById("img3").addEventListener("click", function () {
-      window.location.href = "web4.html";
-    });
-    document.getElementById("img4").addEventListener("click", function () {
-      window.location.href = "web5.html";
-    });
-
-    document.getElementById("cart").addEventListener("click", function () {
-      window.location.href = "cart.html";
-    });
-  </script>
-  
-
-</body>
-</html>
