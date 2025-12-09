@@ -165,11 +165,108 @@
         </div>
       </div>
     </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+      <div class="container">
+        <h2>Customer Reviews</h2>
+        
+        <!-- Review Summary -->
+        <div class="review-summary">
+          <div class="rating-overview">
+            <div class="average-rating">
+              <span class="rating-number">4.5</span>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="total-reviews">Based on 127 reviews</span>
+            </div>
+            
+            <div class="rating-bars">
+              <div class="rating-bar">
+                <span>5 stars</span>
+                <div class="bar-container">
+                  <div class="bar-fill" style="width: 65%"></div>
+                </div>
+                <span>65%</span>
+              </div>
+              <div class="rating-bar">
+                <span>4 stars</span>
+                <div class="bar-container">
+                  <div class="bar-fill" style="width: 20%"></div>
+                </div>
+                <span>20%</span>
+              </div>
+              <div class="rating-bar">
+                <span>3 stars</span>
+                <div class="bar-container">
+                  <div class="bar-fill" style="width: 10%"></div>
+                </div>
+                <span>10%</span>
+              </div>
+              <div class="rating-bar">
+                <span>2 stars</span>
+                <div class="bar-container">
+                  <div class="bar-fill" style="width: 3%"></div>
+                </div>
+                <span>3%</span>
+              </div>
+              <div class="rating-bar">
+                <span>1 star</span>
+                <div class="bar-container">
+                  <div class="bar-fill" style="width: 2%"></div>
+                </div>
+                <span>2%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add Review Form -->
+        <div class="add-review">
+          <h3>Write a Review</h3>
+          <form id="reviewForm">
+            <div class="rating-input">
+              <label>Your Rating:</label>
+              <div class="star-rating">
+                <i class="far fa-star" data-rating="1"></i>
+                <i class="far fa-star" data-rating="2"></i>
+                <i class="far fa-star" data-rating="3"></i>
+                <i class="far fa-star" data-rating="4"></i>
+                <i class="far fa-star" data-rating="5"></i>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <input type="text" id="reviewName" placeholder="Your Name" required>
+            </div>
+            
+            <div class="form-group">
+              <textarea id="reviewText" placeholder="Write your review..." rows="4" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn-primary">
+              <i class="fas fa-paper-plane"></i>
+              Submit Review
+            </button>
+          </form>
+        </div>
+
+        <!-- Reviews List -->
+        <div class="reviews-list" id="reviewsList">
+          <!-- Reviews will be dynamically added here -->
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2024 JKS Store. All rights reserved. | Premium Electronics Store</p>
+      <p>&copy; 2026 JKS Store. All rights reserved. | Premium Electronics Store</p>
     </div>
   </footer>
 
@@ -290,6 +387,197 @@ window.addEventListener('scroll', () => {
 
 // Initialize
 updateCartCount();
+loadReviews();
+
+// Review System
+let selectedRating = 0;
+
+// Star rating interaction
+document.querySelectorAll('.star-rating i').forEach(star => {
+  star.addEventListener('click', function() {
+    selectedRating = parseInt(this.dataset.rating);
+    updateStarDisplay(selectedRating);
+  });
+  
+  star.addEventListener('mouseenter', function() {
+    const hoverRating = parseInt(this.dataset.rating);
+    updateStarDisplay(hoverRating);
+  });
+});
+
+document.querySelector('.star-rating').addEventListener('mouseleave', function() {
+  updateStarDisplay(selectedRating);
+});
+
+function updateStarDisplay(rating) {
+  document.querySelectorAll('.star-rating i').forEach((star, index) => {
+    if (index < rating) {
+      star.classList.remove('far');
+      star.classList.add('fas');
+    } else {
+      star.classList.remove('fas');
+      star.classList.add('far');
+    }
+  });
+}
+
+// Review form submission
+document.getElementById('reviewForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  if (selectedRating === 0) {
+    showNotification('Please select a rating!');
+    return;
+  }
+  
+  const name = document.getElementById('reviewName').value.trim();
+  const text = document.getElementById('reviewText').value.trim();
+  
+  if (!name || !text) {
+    showNotification('Please fill in all fields!');
+    return;
+  }
+  
+  const review = {
+    name: name,
+    rating: selectedRating,
+    text: text,
+    date: new Date().toLocaleDateString(),
+    helpful: 0
+  };
+  
+  // Save to localStorage
+  let reviews = JSON.parse(localStorage.getItem('web21_reviews')) || [];
+  reviews.unshift(review); // Add to beginning
+  localStorage.setItem('web21_reviews', JSON.stringify(reviews));
+  
+  // Reset form
+  this.reset();
+  selectedRating = 0;
+  updateStarDisplay(0);
+  
+  // Refresh reviews display
+  loadReviews();
+  
+  showNotification('Review submitted successfully!');
+});
+
+function loadReviews() {
+  const reviews = JSON.parse(localStorage.getItem('web21_reviews')) || [
+    {
+      name: "Rahul Sharma",
+      rating: 5,
+      text: "Amazing phone! The camera quality is outstanding and the display is simply beautiful. Battery life is excellent too.",
+      date: "12/8/2024",
+      helpful: 24
+    },
+    {
+      name: "Priya Patel",
+      rating: 4,
+      text: "Great performance and design. The only minor issue is the weight, but overall it's a premium device.",
+      date: "12/7/2024",
+      helpful: 18
+    },
+    {
+      name: "Amit Kumar",
+      rating: 5,
+      text: "Best flagship phone I've ever used. The ZEISS camera system is incredible and the processor is super fast.",
+      date: "12/6/2024",
+      helpful: 31
+    }
+  ];
+  
+  const reviewsList = document.getElementById('reviewsList');
+  reviewsList.innerHTML = '';
+  
+  if (reviews.length === 0) {
+    reviewsList.innerHTML = '<p class="no-reviews">No reviews yet. Be the first to review!</p>';
+    return;
+  }
+  
+  reviews.forEach(review => {
+    const reviewElement = createReviewElement(review);
+    reviewsList.appendChild(reviewElement);
+  });
+  
+  updateReviewSummary(reviews);
+}
+
+function createReviewElement(review) {
+  const reviewDiv = document.createElement('div');
+  reviewDiv.className = 'review-item';
+  
+  const stars = Array(5).fill(0).map((_, i) => 
+    i < review.rating ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>'
+  ).join('');
+  
+  reviewDiv.innerHTML = `
+    <div class="review-header">
+      <div class="reviewer-info">
+        <h4>${review.name}</h4>
+        <div class="review-rating">${stars}</div>
+      </div>
+      <span class="review-date">${review.date}</span>
+    </div>
+    <p class="review-text">${review.text}</p>
+    <div class="review-actions">
+      <button class="helpful-btn" onclick="markHelpful(this)">
+        <i class="fas fa-thumbs-up"></i>
+        Helpful (${review.helpful || 0})
+      </button>
+    </div>
+  `;
+  
+  return reviewDiv;
+}
+
+function markHelpful(button) {
+  const reviews = JSON.parse(localStorage.getItem('web21_reviews')) || [];
+  const reviewIndex = Array.from(button.closest('.reviews-list').children).indexOf(button.closest('.review-item'));
+  
+  if (reviews[reviewIndex]) {
+    reviews[reviewIndex].helpful = (reviews[reviewIndex].helpful || 0) + 1;
+    localStorage.setItem('web21_reviews', JSON.stringify(reviews));
+    
+    button.innerHTML = `<i class="fas fa-thumbs-up"></i> Helpful (${reviews[reviewIndex].helpful})`;
+    button.disabled = true;
+    button.classList.add('disabled');
+  }
+}
+
+function updateReviewSummary(reviews) {
+  if (reviews.length === 0) return;
+  
+  const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
+  const averageRating = (totalRating / reviews.length).toFixed(1);
+  
+  // Update average rating display
+  const ratingNumber = document.querySelector('.rating-number');
+  if (ratingNumber) {
+    ratingNumber.textContent = averageRating;
+  }
+  
+  const totalReviews = document.querySelector('.total-reviews');
+  if (totalReviews) {
+    totalReviews.textContent = `Based on ${reviews.length} reviews`;
+  }
+  
+  // Update rating distribution
+  const ratingCounts = [0, 0, 0, 0, 0];
+  reviews.forEach(review => {
+    ratingCounts[review.rating - 1]++;
+  });
+  
+  const ratingBars = document.querySelectorAll('.rating-bar');
+  ratingBars.forEach((bar, index) => {
+    const percentage = reviews.length > 0 ? (ratingCounts[4 - index] / reviews.length * 100).toFixed(0) : 0;
+    const barFill = bar.querySelector('.bar-fill');
+    const percentageSpan = bar.querySelector('span:last-child');
+    
+    if (barFill) barFill.style.width = `${percentage}%`;
+    if (percentageSpan) percentageSpan.textContent = `${percentage}%`;
+  });
+}
 </script>
 
 </body>

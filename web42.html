@@ -1,298 +1,552 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tv</title>
-  <style>
-    * {
-      box-sizing: border-box
-    }
-
-    body {
-      font-family: Verdana, sans-serif;
-      margin: 0
-    }
-
-    .mySlides {
-      display: none
-    }
-
-    img {
-      text-align: center;
-    }
-
-    /* Slideshow container */
-    .slideshow-container {
-      max-width: 500px;
-      position: relative;
-      margin: auto;
-    }
-
-    /* Next & previous buttons */
-    .prev,
-    .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      width: auto;
-      padding: 16px;
-      margin-top: -22px;
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
-      transition: 0.6s ease;
-      border-radius: 0 3px 3px 0;
-      user-select: none;
-    }
-
-    /* Position the "next button" to the right */
-    .next {
-      right: 0;
-      border-radius: 3px 0 0 3px;
-    }
-
-    /* On hover, add a black background color with a little bit see-through */
-    .prev:hover,
-    .next:hover {
-      background-color: rgba(0, 0, 0, 0.8);
-    }
-
-    /* Caption text */
-    .text {
-      color: #f2f2f2;
-      font-size: 15px;
-      padding: 8px 12px;
-      position: absolute;
-      bottom: 8px;
-      width: 100%;
-      text-align: center;
-    }
-
-    /* Number text (1/3 etc) */
-    .numbertext {
-      color: #f2f2f2;
-      font-size: 12px;
-      padding: 8px 12px;
-      position: absolute;
-      top: 0;
-    }
-
-    /* The dots/bullets/indicators */
-    .dot {
-      cursor: pointer;
-      height: 15px;
-      width: 15px;
-      margin: 0 2px;
-      background-color: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-      transition: background-color 0.6s ease;
-    }
-
-    .active,
-    .dot:hover {
-      background-color: orangered;
-    }
-
-    /* Fading animation */
-    .fade {
-      animation-name: fade;
-      animation-duration: 1.5s;
-    }
-
-    @keyframes fade {
-      from {
-        opacity: .4
-      }
-
-      to {
-        opacity: 1
-      }
-    }
-
-    body {
-      background-color: black;
-    }
-
-    img {
-      padding-left: 20%;
-      height: auto;
-      width: auto;
-    }
-
-    .btn {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-    }
-
-    button {
-      padding: 10px 20px;
-      font-size: 18px;
-      background-color: #00a806;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    button:hover {
-      background-color: #005204 ;
-    transform: translateY(-4px);
-    }
-
-    #productName {
-      color: cadetblue;
-      text-align: center;
-      font-size: x-large;
-      margin: 8%;
-    }
-
-    /* New CSS for specification grid */
-    .spec-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-      color: rgba(245, 222, 179, 0.836);
-      margin: 10% 5%;
-      font-size: 14px;
-      text-align: left;
-    }
-
-    .spec-grid span {
-      background-color: #1a1a1a;
-      padding: 10px;
-      border-radius: 5px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LG OLED97G2 97″ OLED 4K - JKS Store</title>
+  <link rel="stylesheet" href="webcss.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
-<body style="max-width: 1000px; margin: 20px auto;">
-
-  <div class="slideshow-container">
-    <div class="mySlides fade">
-      <div class="numbertext">1 / 3</div>
-      <img id="pImage" src="pic/lg1.jpeg" style="width:80%;" alt="LG OLED97G2PSA 97 inch 4K OLED TV">
-    </div>
-
-    <div class="mySlides fade">
-      <div class="numbertext">2 / 3</div>
-      <img src="pic/lg2.jpeg" style="width: 80%;" alt="Side view of the LG OLED TV">
-    </div>
-
-    <div class="mySlides fade">
-      <div class="numbertext">3 / 3</div>
-      <img src="pic/lg3.jpeg" style="width: 80%;" alt="Back view of the LG OLED TV with connections">
-    </div>
-
-    <a class="prev" onclick="plusSlides(-1)">❮</a>
-    <a class="next" onclick="plusSlides(1)">❯</a>
-  </div>
-  <br>
-
-  <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-  </div>
-
-  <form id="myForm">
-    <div id="product">
-      <p id="productName"><b>LG OLED97G2PSA 97 inch OLED evo 4K</b></p>
-      <p id="productPrice" style="color: crimson; font-size: x-large; text-align: center;"><b> &#8377;1,999,990</b></p>
-    </div>
-    <div>
-      <p
-        style="color: blue ;font-size: x-large; text-align: center; border: 5px solid white; border: none; border-radius: 8px; margin: 50px; padding:10px ; background-color: skyblue; ">
-        <b>Specification</b>
-      </p>
-      <div class="spec-grid">
-        <span>Display: 97″ OLED evo, 4K UHD (3840 × 2160), self-lit pixels, perfect blacks, wide viewing angles</span>
-        <span>Refresh Rate: 120 Hz native (OLED Motion)</span>
-        <span>Response Time: ~0.1 ms pixel response</span>
-        <span>Processor & HDR: α9 Gen5 AI Processor 4K, AI Picture Pro, AI 4K Upscaling, Dynamic Tone Mapping Pro, Dolby
-          Vision IQ, HDR10 Pro, HLG, Filmmaker Mode</span>
-        <span>Gaming Features: VRR, ALLM, G-Sync Compatible, FreeSync Premium, HGiG, Game Optimizer, 4K @ 120 Hz support
-          via HDMI 2.1, Game Dashboard</span>
-        <span>Audio: 4.2-ch system (60 W total, including 20 W subwoofer), Dolby Atmos, AI Sound Pro (virtual 7.1.2),
-          Clear Voice Pro, AI Acoustic Tuning, Bluetooth Surround Ready</span>
-        <span>Smart Platform: webOS, LG ThinQ AI, Magic Remote, Apple AirPlay 2 & HomeKit, Built-in Google Assistant &
-          Alexa, Magic Tap, Full web browser, Sports Alert, Art Gallery mode, Multi-View</span>
-        <span>Connectivity: 4 × HDMI 2.1 (side, with eARC, VRR, ALLM support), 3 × USB (side), Optical audio out, RF
-          input (antenna), Ethernet LAN, RS-232C, eARC support, Wi-Fi 6 (802.11ax), Bluetooth 5.0</span>
-        
-        <span>Power consumption: ~230 W typical, standby ≤0.5 W, Voltage: 100–240 V, 50/60 Hz</span>
-        <span>Warranty: 3-year coverage (panel warranty may vary by region)</span>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <i class="fas fa-store"></i>
+        <span>JKS Store</span>
+      </div>
+      <div class="nav-actions">
+        <button id="cartBtn" class="cart-btn">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </button>
       </div>
     </div>
-  </form>
-  <div class="btn">
-    <button onclick="addToCart()">Add To Cart</button>
-    <button onclick="buyNow()" style="width:250px;">Buy Now</button>
-  </div>
-  <script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
+  </nav>
 
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
+  <main>
+    <!-- Page header / breadcrumb -->
+    <section class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <i class="fas fa-chevron-right"></i>
+          <a href="web-tv.html">Televisions</a>
+          <i class="fas fa-chevron-right"></i>
+          <span>LG OLED97G2 97″ OLED 4K</span>
+        </div>
+        <h1><i class="fas fa-tv"></i> LG OLED97G2PSA 97 inch OLED evo 4K</h1>
+        <p>Ultra‑large 97″ OLED evo 4K TV with perfect blacks, α9 Gen5 AI Processor, and premium webOS smart features</p>
+      </div>
+    </section>
+
+    <!-- Product detail -->
+    <section class="product-detail">
+      <div class="container">
+        <div class="product-showcase">
+          <!-- Product Gallery -->
+          <div class="product-gallery">
+            <div class="slideshow-container">
+              <div class="slide active">
+                <img id="pImage" src="pic/lg1.jpeg" alt="LG OLED97G2 97 inch OLED evo 4K TV front view">
+              </div>
+              <div class="slide">
+                <img src="pic/lg2.jpeg" alt="Side view of LG OLED97G2 97 inch OLED TV">
+              </div>
+              <div class="slide">
+                <img src="pic/lg3.jpeg" alt="Back view of LG OLED97G2 TV with ports and connections">
+              </div>
+
+              <button class="slideshow-nav slideshow-prev" onclick="plusSlides(-1)">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="slideshow-nav slideshow-next" onclick="plusSlides(1)">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+
+            <div class="slideshow-dots">
+              <span class="dot active" onclick="currentSlide(1)"></span>
+              <span class="dot" onclick="currentSlide(2)"></span>
+              <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+          </div>
+
+          <!-- Product Info -->
+          <div class="product-info">
+            <h2 class="product-title" id="productName">
+              LG OLED97G2PSA 97 inch OLED evo 4K
+            </h2>
+            <p class="product-price" id="productPrice">₹1,999,990</p>
+            <p class="product-description">
+              LG’s 97″ OLED evo panel delivers self‑lit pixels, perfect blacks, and wide viewing angles, powered by the α9 Gen5 AI Processor 4K with Dolby Vision IQ and Atmos for a true cinematic experience at home.
+            </p>
+
+            <div class="product-actions">
+              <button class="btn-primary" onclick="addToCart()">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+              <button class="btn-secondary" onclick="buyNow()">
+                <i class="fas fa-bolt"></i>
+                Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specifications -->
+    <section class="specifications">
+      <div class="container">
+        <h2>Technical Specifications</h2>
+        <div class="spec-grid">
+          <div class="spec-item">
+            <h3>Display</h3>
+            <p>97″ OLED evo 4K UHD (3840 × 2160) with self‑lit pixels, perfect blacks and wide viewing angles</p>
+          </div>
+          <div class="spec-item">
+            <h3>Refresh & Response</h3>
+            <p>120 Hz native refresh rate (OLED Motion) with ultra‑fast ~0.1 ms pixel response</p>
+          </div>
+          <div class="spec-item">
+            <h3>Processor & HDR</h3>
+            <p>α9 Gen5 AI Processor 4K, AI Picture Pro, AI 4K Upscaling, Dynamic Tone Mapping Pro, Dolby Vision IQ, HDR10 Pro, HLG</p>
+          </div>
+          <div class="spec-item">
+            <h3>Gaming Features</h3>
+            <p>VRR, ALLM, NVIDIA G‑SYNC Compatible, AMD FreeSync Premium, HGiG, 4K @ 120 Hz via HDMI 2.1, Game Optimizer and Game Dashboard</p>
+          </div>
+          <div class="spec-item">
+            <h3>Audio</h3>
+            <p>4.2‑channel 60 W audio (including 20 W subwoofer), Dolby Atmos, AI Sound Pro virtual 7.1.2, Clear Voice Pro and AI Acoustic Tuning</p>
+          </div>
+          <div class="spec-item">
+            <h3>Smart Platform</h3>
+            <p>webOS with LG ThinQ AI, Magic Remote, Apple AirPlay 2 & HomeKit, built‑in Google Assistant and Alexa, Sports Alert, Art Gallery and Multi‑View</p>
+          </div>
+          <div class="spec-item">
+            <h3>Connectivity</h3>
+            <p>4× HDMI 2.1 with eARC, VRR, ALLM; 3× USB; Optical out; RF; Ethernet LAN; RS‑232C; Wi‑Fi 6; Bluetooth 5.0</p>
+          </div>
+          <div class="spec-item">
+            <h3>Power & Warranty</h3>
+            <p>Typical power use around 230 W, standby ≤ 0.5 W, multi‑voltage 100–240 V, 50/60 Hz and 3‑year warranty (panel coverage region‑dependent)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+      <div class="container">
+        <h2>Customer Reviews</h2>
+
+        <!-- Review Summary -->
+        <div class="review-summary">
+          <div class="rating-overview">
+            <div class="average-rating">
+              <span class="rating-number">4.8</span>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="total-reviews">Based on 41 reviews</span>
+            </div>
+
+            <div class="rating-bars">
+              <div class="rating-bar">
+                <span>5 stars</span>
+                <div class="bar-container">
+                  <div class="bar-fill" style="width: 80%"></div>
+                </div>
+                <span>80%</span>
+              </div>
+              <div class="rating-bar">
+                <span>4 stars</span>
+                <div class="bar-container">
+                  <div class="bar-fill" style="width: 14%"></div>
+                </div>
+                <span>14%</span>
+              </div>
+              <div class="rating-bar">
+                <span>3 stars</span>
+                <div class="bar-container">
+                  <div class="bar-fill" style="width: 4%"></div>
+                </div>
+                <span>4%</span>
+              </div>
+              <div class="rating-bar">
+                <span>2 stars</span>
+                <div class="bar-container">
+                  <div class="bar-fill" style="width: 1%"></div>
+                </div>
+                <span>1%</span>
+              </div>
+              <div class="rating-bar">
+                <span>1 star</span>
+                <div class="bar-container">
+                  <div class="bar-fill" style="width: 1%"></div>
+                </div>
+                <span>1%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add Review Form -->
+        <div class="add-review">
+          <h3>Write a Review</h3>
+          <form id="reviewForm">
+            <div class="rating-input">
+              <label>Your Rating:</label>
+              <div class="star-rating">
+                <i class="far fa-star" data-rating="1"></i>
+                <i class="far fa-star" data-rating="2"></i>
+                <i class="far fa-star" data-rating="3"></i>
+                <i class="far fa-star" data-rating="4"></i>
+                <i class="far fa-star" data-rating="5"></i>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input type="text" id="reviewName" placeholder="Your Name" required>
+            </div>
+
+            <div class="form-group">
+              <textarea id="reviewText" placeholder="Write your review..." rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary">
+              <i class="fas fa-paper-plane"></i>
+              Submit Review
+            </button>
+          </form>
+        </div>
+
+        <!-- Reviews List -->
+        <div class="reviews-list" id="reviewsList">
+          <!-- Reviews will be dynamically added here -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 JKS Store. All rights reserved. | Premium Electronics Store</p>
+    </div>
+  </footer>
+
+<script>
+// Slideshow (same pattern as other pages)
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("slide");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].classList.remove("active");
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].classList.remove("active");
+  }
+  slides[slideIndex - 1].classList.add("active");
+  dots[slideIndex - 1].classList.add("active");
+}
+
+// Cart
+function addToCart() {
+  const product = {
+    name: document.getElementById("productName").innerText,
+    price: document.getElementById("productPrice").innerText,
+    image: document.getElementById("pImage").getAttribute("src"),
+    page: "web42.html"
+  };
+  let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+  cart.push(product);
+  localStorage.setItem("cartItems", JSON.stringify(cart));
+
+  updateCartCount();
+  showNotification("Product added to cart!");
+}
+
+function buyNow() {
+  const product = {
+    names: "LG OLED97G2PSA 97 inch OLED evo 4K",
+    prices: "₹1,999,990"
+  };
+  localStorage.setItem("selectedProduct", JSON.stringify(product));
+  window.location.href = "order.html";
+}
+
+// Cart button -> cart page
+document.getElementById('cartBtn').addEventListener('click', () => {
+  window.location.href = 'cart.html';
+});
+
+// Update cart count in navbar
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const cartCountElement = document.querySelector(".cart-count");
+  if (cartCountElement) {
+    cartCountElement.textContent = cart.length;
+    cartCountElement.style.display = cart.length > 0 ? 'flex' : 'none';
+  }
+}
+
+// Notification toast
+function showNotification(message) {
+  const notification = document.createElement('div');
+  notification.className = 'notification';
+  notification.textContent = message;
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  `;
+
+  document.body.appendChild(notification);
+
+  setTimeout(() => {
+    notification.style.transform = 'translateX(0)';
+  }, 100);
+
+  setTimeout(() => {
+    notification.style.transform = 'translateX(100%)';
+    setTimeout(() => {
+      document.body.removeChild(notification);
+    }, 300);
+  }, 3000);
+}
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+  const navbar = document.querySelector('.navbar');
+  if (window.scrollY > 100) {
+    navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+    navbar.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
+  } else {
+    navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+    navbar.style.boxShadow = 'none';
+  }
+});
+
+// Init
+updateCartCount();
+loadReviews();
+
+// Review system
+let selectedRating = 0;
+
+// Star rating interaction
+document.querySelectorAll('.star-rating i').forEach(star => {
+  star.addEventListener('click', function() {
+    selectedRating = parseInt(this.dataset.rating);
+    updateStarDisplay(selectedRating);
+  });
+
+  star.addEventListener('mouseenter', function() {
+    const hoverRating = parseInt(this.dataset.rating);
+    updateStarDisplay(hoverRating);
+  });
+});
+
+document.querySelector('.star-rating').addEventListener('mouseleave', function() {
+  updateStarDisplay(selectedRating);
+});
+
+function updateStarDisplay(rating) {
+  document.querySelectorAll('.star-rating i').forEach((star, index) => {
+    if (index < rating) {
+      star.classList.remove('far');
+      star.classList.add('fas');
+    } else {
+      star.classList.remove('fas');
+      star.classList.add('far');
     }
+  });
+}
 
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
+// Review form submit
+document.getElementById('reviewForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  if (selectedRating === 0) {
+    showNotification('Please select a rating!');
+    return;
+  }
+
+  const name = document.getElementById('reviewName').value.trim();
+  const text = document.getElementById('reviewText').value.trim();
+
+  if (!name || !text) {
+    showNotification('Please fill in all fields!');
+    return;
+  }
+
+  const review = {
+    name: name,
+    rating: selectedRating,
+    text: text,
+    date: new Date().toLocaleDateString(),
+    helpful: 0
+  };
+
+  let reviews = JSON.parse(localStorage.getItem('web42_reviews')) || [];
+  reviews.unshift(review);
+  localStorage.setItem('web42_reviews', JSON.stringify(reviews));
+
+  this.reset();
+  selectedRating = 0;
+  updateStarDisplay(0);
+
+  loadReviews();
+  showNotification('Review submitted successfully!');
+});
+
+// Load & render reviews
+function loadReviews() {
+  const reviews = JSON.parse(localStorage.getItem('web42_reviews')) || [
+    {
+      name: "Rohit Jain",
+      rating: 5,
+      text: "Black levels are incredible and movies look like a real cinema at home.",
+      date: "12/1/2024",
+      helpful: 15
+    },
+    {
+      name: "Meera Iyer",
+      rating: 5,
+      text: "Gaming at 4K 120Hz on this OLED is next level, very smooth and responsive.",
+      date: "11/29/2024",
+      helpful: 12
+    },
+    {
+      name: "Vivek Singh",
+      rating: 4,
+      text: "Huge screen and great picture quality. Needs a big wall but totally worth it.",
+      date: "11/27/2024",
+      helpful: 8
     }
+  ];
 
-    function showSlides(n) {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      let dots = document.getElementsByClassName("dot");
-      if (n > slides.length) { slideIndex = 1 }
-      if (n < 1) { slideIndex = slides.length }
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active";
-    }
-    function addToCart() {
-      const product = {
-        name: document.getElementById("productName").innerText,
-        price: document.getElementById("productPrice").innerText,
-        image: document.getElementById("pImage").src,
-        page: "web42.html"
+  const reviewsList = document.getElementById('reviewsList');
+  reviewsList.innerHTML = '';
 
-      };
+  if (reviews.length === 0) {
+    reviewsList.innerHTML = '<p class="no-reviews">No reviews yet. Be the first to review!</p>';
+    return;
+  }
 
-      // Get existing items or start new
-      let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+  reviews.forEach(review => {
+    const reviewElement = createReviewElement(review);
+    reviewsList.appendChild(reviewElement);
+  });
 
-      // Add current product
-      cart.push(product);
+  updateReviewSummary(reviews);
+}
 
-      // Save back to localStorage
-      localStorage.setItem("cartItems", JSON.stringify(cart));
+function createReviewElement(review) {
+  const reviewDiv = document.createElement('div');
+  reviewDiv.className = 'review-item';
 
-      alert("Product added to cart!");
-    }
+  const stars = Array(5).fill(0).map((_, i) =>
+    i < review.rating ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>'
+  ).join('');
 
+  reviewDiv.innerHTML = `
+    <div class="review-header">
+      <div class="reviewer-info">
+        <h4>${review.name}</h4>
+        <div class="review-rating">${stars}</div>
+      </div>
+      <span class="review-date">${review.date}</span>
+    </div>
+    <p class="review-text">${review.text}</p>
+    <div class="review-actions">
+      <button class="helpful-btn" onclick="markHelpful(this)">
+        <i class="fas fa-thumbs-up"></i>
+        Helpful (${review.helpful || 0})
+      </button>
+    </div>
+  `;
 
-    function buyNow() {
-      const product = {
-        names: "LG OLED97G2PSA 97 inch OLED evo 4K",
-        prices: "₹1,999,990"
-      };
-      localStorage.setItem("selectedProduct", JSON.stringify(product));
-      window.location.href = "order.html";
-    }
-  </script>
+  return reviewDiv;
+}
 
+function markHelpful(button) {
+  const reviews = JSON.parse(localStorage.getItem('web42_reviews')) || [];
+  const reviewIndex = Array.from(button.closest('.reviews-list').children).indexOf(button.closest('.review-item'));
+
+  if (reviews[reviewIndex]) {
+    reviews[reviewIndex].helpful = (reviews[reviewIndex].helpful || 0) + 1;
+    localStorage.setItem('web42_reviews', JSON.stringify(reviews));
+
+    button.innerHTML = `<i class="fas fa-thumbs-up"></i> Helpful (${reviews[reviewIndex].helpful})`;
+    button.disabled = true;
+    button.classList.add('disabled');
+  }
+}
+
+function updateReviewSummary(reviews) {
+  if (reviews.length === 0) return;
+
+  const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
+  const averageRating = (totalRating / reviews.length).toFixed(1);
+
+  const ratingNumber = document.querySelector('.rating-number');
+  if (ratingNumber) {
+    ratingNumber.textContent = averageRating;
+  }
+
+  const totalReviews = document.querySelector('.total-reviews');
+  if (totalReviews) {
+    totalReviews.textContent = `Based on ${reviews.length} reviews`;
+  }
+
+  const ratingCounts = [0, 0, 0, 0, 0];
+  reviews.forEach(review => {
+    ratingCounts[review.rating - 1]++;
+  });
+
+  const ratingBars = document.querySelectorAll('.rating-bar');
+  ratingBars.forEach((bar, index) => {
+    const percentage = reviews.length > 0 ? (ratingCounts[4 - index] / reviews.length * 100).toFixed(0) : 0;
+    const barFill = bar.querySelector('.bar-fill');
+    const percentageSpan = bar.querySelector('span:last-child');
+
+    if (barFill) barFill.style.width = `${percentage}%`;
+    if (percentageSpan) percentageSpan.textContent = `${percentage}%`;
+  });
+}
+</script>
 </body>
-
 </html>

@@ -1,283 +1,576 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Mobile</title>
-<style>
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    font-family: Verdana, sans-serif;
-    margin: 0;
-    background-color: black;
-  }
-  .mySlides {
-    display: none;
-  }
-  img {
-    margin-left: 25%;
-    height: auto;
-    width: auto;
-    text-align: center;
-  }
-
-  /* Slideshow container */
-  .slideshow-container {
-    max-width: 500px;
-    position: relative;
-    margin: auto;
-  }
-
-  /* Next & previous buttons */
-  .prev,
-  .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-  }
-
-  /* Position the "next button" to the right */
-  .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-  }
-
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover,
-  .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-
-  /* Caption text */
-  .text {
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    text-align: center;
-  }
-
-  /* Number text (1/4 etc) */
-  .numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
-  }
-
-  /* The dots/bullets/indicators */
-  .dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-  }
-
-  .active,
-  .dot:hover {
-    background-color: orangered;
-  }
-
-  /* Fading animation */
-  .fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-  }
-
-  @keyframes fade {
-    from {
-      opacity: 0.4;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  .btn {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
-
-  button {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #00a806;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-
-  button:hover {
-    background-color:#005204 ;
-    transform: translateY(-4px);
-  }
-
-  #productName{
-  color: cadetblue;
-  text-align: center;
-  font-size: x-large;
-  margin: 8%;
-}
-
-/* New CSS for specification grid */
-.spec-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  color: rgba(245, 222, 179, 0.836);
-  margin: 10% 5%;
-  font-size: 14px;
-  text-align: left;
-}
-.spec-grid span {
-  background-color: #1a1a1a;
-  padding: 10px;
-  border-radius: 5px;
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samsung S24 Ultra - JKS Store</title>
+  <link rel="stylesheet" href="webcss.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body style="max-width: 1000px; margin: 20px auto;">
-  <div class="slideshow-container">
-    <div class="mySlides fade">
-      <div class="numbertext">1 / 4</div>
-      <img id="pImage" src="pic\samsung1.jpeg" style="width:50%;" />
-    </div>
-
-    <div class="mySlides fade">
-      <div class="numbertext">2 / 4</div>
-      <img src="pic\samsung2.jpeg" style="width: 50%;" />
-    </div>
-
-    <div class="mySlides fade">
-      <div class="numbertext">3 / 4</div>
-      <img src="pic\samsung3.jpeg" style="width: 50%;" />
-    </div>
-
-    <div class="mySlides fade">
-      <div class="numbertext">4 / 4</div>
-      <img src="pic\samsung4.jpeg" style="width: 50%;" />
-    </div>
-
-    <a class="prev" onclick="plusSlides(-1)">❮</a>
-    <a class="next" onclick="plusSlides(1)">❯</a>
-  </div>
-  <br />
-
-  <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-    <span class="dot" onclick="currentSlide(4)"></span>
-  </div>
-  <form id="myForm">
-    <div id="product">
-      <p id="productName"><b>Samsung S24 Ultra</b></p>
-      <p id="productPrice" style="color: crimson; font-size: x-large; text-align: center;">
-        <b> &#8377;109,999</b>
-      </p>
-    </div>
-    <div>
-      <p style="color: blue ;font-size: x-large; text-align: center; border: 5px solid white; border: none; border-radius: 8px; margin: 50px; padding:10px ; background-color: skyblue; "><b>Specification:</b></p>
-      <div class="spec-grid">
-        <span>Display: 6.8″ Dynamic LTPO AMOLED 2X (120 Hz adaptive, HDR10+, peak ~2600 nits, Gorilla Armor anti‑reflective glass)</span>
-        <span>Resolution: 3120 × 1440 px (~505 ppi), flat display design (no curve)</span>
-        <span>Build: Titanium frame (Grade 2), Gorilla Armor front/back, IP68 water/dust resistance (up to 1.5 m / 30 min)</span>
-        <span>Dimensions & Weight: ~162.3 × 79 × 8.6 mm; ~232 g</span>
-        <span>Chipset: Snapdragon 8 Gen 3 (USA/China) or Exynos 2400 (other regions), Octa-core CPU (up to 3.39 GHz Cortex‑X4) & Adreno 750 GPU</span>
-        <span>OS: Android 14 with One UI 6.1 (Upgradeable to Android 15 / One UI 7)</span>
-        <span>RAM & Storage: 12 GB LPDDR5X RAM; 256 GB / 512 GB / 1 TB UFS 4.0 (non-expandable)</span>
-        <span>Rear Cameras: 200 MP main wide, 10 MP telephoto (3× zoom), 50 MP periscope telephoto (5× zoom), 12 MP ultrawide</span>
-        <span>Video Recording: 8K @ 24/30 fps; 4K @ 30/60/120 fps; 1080p up to 240fps; 720p @ 960fps; gyro-EIS</span>
-        <span>Front Camera: 12 MP, ƒ/2.2, Dual‑pixel PDAF; 4K @ 30/60 fps, 1080p @ 30 fps</span>
-        <span>Audio & Speakers: Stereo loudspeakers, 32‑bit/384 kHz audio playback, tuned by AKG; no headphone jack</span>
-        <span>Connectivity: 5G SA/NSA (Sub‑6 & mmWave depending on region), Wi‑Fi 7, Bluetooth 5.3, NFC, USB‑C 3.2 (DisplayPort 1.2, OTG), Ultra Wideband (UWB), Samsung DeX desktop mode</span>
-        <span>Extras: S Pen support (built‑in stylus), ProVisual Engine & Galaxy AI suite, Up to 7 years of OS/security updates</span>
-        <span>Battery & Charging: 5,000 mAh Li‑Ion, 45 W wired fast charging, 15 W wireless charging, reverse wireless charging</span>
-        
+<body>
+  <nav class="navbar"></nav>
+    <div class="nav-container">
+      <div class="nav-brand">
+        <i class="fas fa-store"></i>
+        <span>JKS Store</span>
+      </div>
+      <div class="nav-actions">
+        <button id="cartBtn" class="cart-btn">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </button>
       </div>
     </div>
-  </form>
+  </nav>
 
-  <div class="btn">
-    <button onclick="addToCart()">Add To Cart</button>
-    <button onclick="buyNow()" style="width: 250px;">Buy Now</button>
-  </div>
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <i class="fas fa-chevron-right"></i>
+          <a href="web2.html">Mobiles</a>
+          <i class="fas fa-chevron-right"></i>
+          <span>Samsung S24 Ultra</span>
+        </div>
+        <h1><i class="fas fa-mobile-alt"></i> Samsung S24 Ultra</h1>
+        <p>Premium flagship smartphone with S Pen and Galaxy AI</p>
+      </div>
+    </section>
 
-  <script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
+    <section class="product-detail">
+      <div class="container">
+        <div class="product-showcase">
+          <!-- Product Gallery -->
+          <div class="product-gallery">
+            <div class="slideshow-container">
+              <div class="slide active">
+                <img src="pic/samsung1.jpeg" alt="Samsung S24 Ultra - Front View">
+              </div>
+              <div class="slide">
+                <img src="pic/samsung2.jpeg" alt="Samsung S24 Ultra - Side View">
+              </div>
+              <div class="slide">
+                <img src="pic/samsung3.jpeg" alt="Samsung S24 Ultra - Back View">
+              </div>
+              <div class="slide">
+                <img src="pic/samsung4.jpeg" alt="Samsung S24 Ultra - S Pen View">
+              </div>
+              <button class="slideshow-nav slideshow-prev" onclick="plusSlides(-1)">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="slideshow-nav slideshow-next" onclick="plusSlides(1)">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+            <div class="slideshow-dots">
+              <span class="dot active" onclick="currentSlide(1)"></span>
+              <span class="dot" onclick="currentSlide(2)"></span>
+              <span class="dot" onclick="currentSlide(3)"></span>
+              <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
+          </div>
 
-    function plusSlides(n) {
-      showSlides((slideIndex += n));
+          <!-- Product Information -->
+          <div class="product-info">
+            <h2 class="product-title">Samsung S24 Ultra</h2>
+            <p class="product-price">₹109,999</p>
+            <p class="product-description">
+              Experience the ultimate flagship with Samsung S24 Ultra, featuring a stunning 6.8" Dynamic LTPO AMOLED 2X display, powerful Snapdragon 8 Gen 3 processor, and revolutionary Galaxy AI capabilities with built-in S Pen.
+            </p>
+            
+            <div class="product-actions">
+              <button class="btn-primary" onclick="addToCart()">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+              <button class="btn-secondary" onclick="buyNow()">
+                <i class="fas fa-bolt"></i>
+                Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specifications Section -->
+    <section class="specifications">
+      <div class="container">
+        <h2>Technical Specifications</h2>
+        <div class="spec-grid">
+          <div class="spec-item">
+            <h3>Display</h3>
+            <p>6.8″ Dynamic LTPO AMOLED 2X (3120 × 1440 px, ~505 ppi), 120 Hz adaptive refresh, HDR10+, peak brightness ~2600 nits, Gorilla Armor anti‑reflective glass, flat display design</p>
+          </div>
+          <div class="spec-item">
+            <h3>Build & Durability</h3>
+            <p>Titanium frame (Grade 2), Gorilla Armor front/back, IP68 water/dust resistance (up to 1.5 m / 30 min), dimensions ~162.3 × 79 × 8.6 mm; weight ~232 g</p>
+          </div>
+          <div class="spec-item">
+            <h3>Chipset</h3>
+            <p>Snapdragon 8 Gen 3 (USA/China) or Exynos 2400 (other regions), Octa-core CPU (up to 3.39 GHz Cortex‑X4) & Adreno 750 GPU</p>
+          </div>
+          <div class="spec-item">
+            <h3>Operating System</h3>
+            <p>Android 14 with One UI 6.1 (Upgradeable to Android 15 / One UI 7), up to 7 years of OS/security updates</p>
+          </div>
+          <div class="spec-item">
+            <h3>Memory & Storage</h3>
+            <p>12 GB LPDDR5X RAM; 256 GB / 512 GB / 1 TB UFS 4.0 (non-expandable)</p>
+          </div>
+          <div class="spec-item">
+            <h3>Rear Cameras</h3>
+            <p>Quad-camera system: 200 MP main wide (f/1.7, OIS), 10 MP telephoto (3× optical zoom, f/2.4, OIS), 50 MP periscope telephoto (5× optical zoom, f/3.4, OIS), 12 MP ultrawide (f/2.2, 120°)</p>
+          </div>
+          <div class="spec-item">
+            <h3>Front Camera</h3>
+            <p>12 MP, ƒ/2.2, Dual‑pixel PDAF; 4K @ 30/60 fps, 1080p @ 30 fps video recording</p>
+          </div>
+          <div class="spec-item">
+            <h3>Video Recording</h3>
+            <p>Rear: 8K @ 24/30 fps; 4K @ 30/60/120 fps; 1080p up to 240fps; 720p @ 960fps; gyro-EIS; Director's View, Auto Framing</p>
+          </div>
+          <div class="spec-item">
+            <h3>Battery & Charging</h3>
+            <p>5,000 mAh Li‑Ion battery, 45 W wired fast charging, 15 W wireless charging, reverse wireless charging</p>
+          </div>
+          <div class="spec-item">
+            <h3>Audio & Speakers</h3>
+            <p>Stereo loudspeakers, 32‑bit/384 kHz audio playback, tuned by AKG; no headphone jack</p>
+          </div>
+          <div class="spec-item">
+            <h3>Connectivity</h3>
+            <p>5G SA/NSA (Sub‑6 & mmWave depending on region), Wi‑Fi 7, Bluetooth 5.3, NFC, USB‑C 3.2 (DisplayPort 1.2, OTG), Ultra Wideband (UWB), Samsung DeX desktop mode</p>
+          </div>
+          <div class="spec-item">
+            <h3>Extras & Features</h3>
+            <p>S Pen support (built‑in stylus with Bluetooth), ProVisual Engine & Galaxy AI suite, Circle to Search, Live Translate, Note Assist, Photo Assist, Galaxy AI editing tools</p>
+          </div>
+          <div class="spec-item">
+            <h3>Availability & Pricing</h3>
+            <p>12/256 GB at ₹99,999; 12/512 GB at ₹109,999; 12/1 TB at ₹129,999</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+      <div class="container">
+        <h2>Customer Reviews</h2>
+        
+        <!-- Review Summary -->
+        <div class="review-summary">
+          <div class="rating-overview">
+            <div class="average-rating">
+              <span class="rating-number">4.7</span>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="total-reviews">Based on 189 reviews</span>
+            </div>
+            
+            <div class="rating-bars">
+              <div class="rating-bar">
+                <span>5 stars</span>
+                <div class="bar-container">
+                  <div class="bar-fill" style="width: 72%"></div>
+                </div>
+                <span>72%</span>
+              </div>
+              <div class="rating-bar">
+                <span>4 stars</span>
+                <div class="bar-container">
+                  <div class="bar-fill" style="width: 18%"></div>
+                </div>
+                <span>18%</span>
+              </div>
+              <div class="rating-bar">
+                <span>3 stars</span>
+                <div class="bar-container">
+                  <div class="bar-fill" style="width: 7%"></div>
+                </div>
+                <span>7%</span>
+              </div>
+              <div class="rating-bar">
+                <span>2 stars</span>
+                <div class="bar-container">
+                  <div class="bar-fill" style="width: 2%"></div>
+                </div>
+                <span>2%</span>
+              </div>
+              <div class="rating-bar">
+                <span>1 star</span>
+                <div class="bar-container">
+                  <div class="bar-fill" style="width: 1%"></div>
+                </div>
+                <span>1%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add Review Form -->
+        <div class="add-review">
+          <h3>Write a Review</h3>
+          <form id="reviewForm">
+            <div class="rating-input">
+              <label>Your Rating:</label>
+              <div class="star-rating">
+                <i class="far fa-star" data-rating="1"></i>
+                <i class="far fa-star" data-rating="2"></i>
+                <i class="far fa-star" data-rating="3"></i>
+                <i class="far fa-star" data-rating="4"></i>
+                <i class="far fa-star" data-rating="5"></i>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <input type="text" id="reviewName" placeholder="Your Name" required>
+            </div>
+            
+            <div class="form-group">
+              <textarea id="reviewText" placeholder="Write your review..." rows="4" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn-primary">
+              <i class="fas fa-paper-plane"></i>
+              Submit Review
+            </button>
+          </form>
+        </div>
+
+        <!-- Reviews List -->
+        <div class="reviews-list" id="reviewsList">
+          <!-- Reviews will be dynamically added here -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 JKS Store. All rights reserved. | Premium Electronics Store</p>
+    </div>
+  </footer>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("slide");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].classList.remove("active");  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].classList.remove("active");
+  }
+  slides[slideIndex-1].classList.add("active");  
+  dots[slideIndex-1].classList.add("active");
+}
+
+function addToCart() {
+  const product = {
+    name: "Samsung S24 Ultra",
+    price: "₹109,999",
+    image: "pic/samsung1.jpeg",
+    page: "web23.html"
+  };
+  let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+  cart.push(product);
+  localStorage.setItem("cartItems", JSON.stringify(cart));
+  
+  // Update cart count
+  updateCartCount();
+  
+  // Show success message
+  showNotification("Product added to cart!");
+}
+
+function buyNow() {
+  const product = {
+    names: "Samsung S24 Ultra",
+    prices: "₹109,999"
+  };
+  localStorage.setItem("selectedProduct", JSON.stringify(product));
+  window.location.href = "order.html";
+}
+
+// Cart functionality
+document.getElementById('cartBtn').addEventListener('click', () => {
+  window.location.href = 'cart.html';
+});
+
+// Update cart count
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const cartCountElement = document.querySelector(".cart-count");
+  if (cartCountElement) {
+    cartCountElement.textContent = cart.length;
+    cartCountElement.style.display = cart.length > 0 ? 'flex' : 'none';
+  }
+}
+
+// Show notification
+function showNotification(message) {
+  const notification = document.createElement('div');
+  notification.className = 'notification';
+  notification.textContent = message;
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  `;
+  
+  document.body.appendChild(notification);
+  
+  setTimeout(() => {
+    notification.style.transform = 'translateX(0)';
+  }, 100);
+  
+  setTimeout(() => {
+    notification.style.transform = 'translateX(100%)';
+    setTimeout(() => {
+      document.body.removeChild(notification);
+    }, 300);
+  }, 3000);
+}
+
+// Scroll effect for navbar
+window.addEventListener('scroll', () => {
+  const navbar = document.querySelector('.navbar');
+  if (window.scrollY > 100) {
+    navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+    navbar.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
+  } else {
+    navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+    navbar.style.boxShadow = 'none';
+  }
+});
+
+// Initialize
+updateCartCount();
+loadReviews();
+
+// Review System
+let selectedRating = 0;
+
+// Star rating interaction
+document.querySelectorAll('.star-rating i').forEach(star => {
+  star.addEventListener('click', function() {
+    selectedRating = parseInt(this.dataset.rating);
+    updateStarDisplay(selectedRating);
+  });
+  
+  star.addEventListener('mouseenter', function() {
+    const hoverRating = parseInt(this.dataset.rating);
+    updateStarDisplay(hoverRating);
+  });
+});
+
+document.querySelector('.star-rating').addEventListener('mouseleave', function() {
+  updateStarDisplay(selectedRating);
+});
+
+function updateStarDisplay(rating) {
+  document.querySelectorAll('.star-rating i').forEach((star, index) => {
+    if (index < rating) {
+      star.classList.remove('far');
+      star.classList.add('fas');
+    } else {
+      star.classList.remove('fas');
+      star.classList.add('far');
     }
+  });
+}
 
-    function currentSlide(n) {
-      showSlides((slideIndex = n));
-    }
+// Review form submission
+document.getElementById('reviewForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  if (selectedRating === 0) {
+    showNotification('Please select a rating!');
+    return;
+  }
+  
+  const name = document.getElementById('reviewName').value.trim();
+  const text = document.getElementById('reviewText').value.trim();
+  
+  if (!name || !text) {
+    showNotification('Please fill in all fields!');
+    return;
+  }
+  
+  const review = {
+    name: name,
+    rating: selectedRating,
+    text: text,
+    date: new Date().toLocaleDateString(),
+    helpful: 0
+  };
+  
+  // Save to localStorage
+  let reviews = JSON.parse(localStorage.getItem('web23_reviews')) || [];
+  reviews.unshift(review); // Add to beginning
+  localStorage.setItem('web23_reviews', JSON.stringify(reviews));
+  
+  // Reset form
+  this.reset();
+  selectedRating = 0;
+  updateStarDisplay(0);
+  
+  // Refresh reviews display
+  loadReviews();
+  
+  showNotification('Review submitted successfully!');
+});
 
-    function showSlides(n) {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      let dots = document.getElementsByClassName("dot");
-      if (n > slides.length) {
-        slideIndex = 1;
-      }
-      if (n < 1) {
-        slideIndex = slides.length;
-      }
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active";
+function loadReviews() {
+  const reviews = JSON.parse(localStorage.getItem('web23_reviews')) || [
+    {
+      name: "Vikram Singh",
+      rating: 5,
+      text: "Absolutely amazing phone! The S Pen is incredibly useful and the camera quality is unmatched. Galaxy AI features are game-changing.",
+      date: "12/8/2024",
+      helpful: 42
+    },
+    {
+      name: "Neha Patel",
+      rating: 4,
+      text: "Great performance and build quality. The titanium frame feels premium. Battery life could be slightly better but overall excellent device.",
+      date: "12/7/2024",
+      helpful: 28
+    },
+    {
+      name: "Rajesh Kumar",
+      rating: 5,
+      text: "Best Samsung phone ever! The display is stunning and the AI features are incredibly useful. S Pen integration is perfect for productivity.",
+      date: "12/6/2024",
+      helpful: 35
     }
+  ];
+  
+  const reviewsList = document.getElementById('reviewsList');
+  reviewsList.innerHTML = '';
+  
+  if (reviews.length === 0) {
+    reviewsList.innerHTML = '<p class="no-reviews">No reviews yet. Be the first to review!</p>';
+    return;
+  }
+  
+  reviews.forEach(review => {
+    const reviewElement = createReviewElement(review);
+    reviewsList.appendChild(reviewElement);
+  });
+  
+  updateReviewSummary(reviews);
+}
 
-    function addToCart() {
-      const product = {
-        name: document.getElementById("productName").innerText,
-        price: document.getElementById("productPrice").innerText,
-        image: document.getElementById("pImage").src,
-        page: "web23.html",
-      };
-      let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
-      cart.push(product);
-      localStorage.setItem("cartItems", JSON.stringify(cart));
-      alert("Product added to cart!");
-    }
+function createReviewElement(review) {
+  const reviewDiv = document.createElement('div');
+  reviewDiv.className = 'review-item';
+  
+  const stars = Array(5).fill(0).map((_, i) => 
+    i < review.rating ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>'
+  ).join('');
+  
+  reviewDiv.innerHTML = `
+    <div class="review-header">
+      <div class="reviewer-info">
+        <h4>${review.name}</h4>
+        <div class="review-rating">${stars}</div>
+      </div>
+      <span class="review-date">${review.date}</span>
+    </div>
+    <p class="review-text">${review.text}</p>
+    <div class="review-actions">
+      <button class="helpful-btn" onclick="markHelpful(this)">
+        <i class="fas fa-thumbs-up"></i>
+        Helpful (${review.helpful || 0})
+      </button>
+    </div>
+  `;
+  
+  return reviewDiv;
+}
 
-    function buyNow() {
-      const product = {
-        names: "Samsung S24 Ultra(Titanium yellow)",
-        prices: "₹109,999",
-      };
-      localStorage.setItem("selectedProduct", JSON.stringify(product));
-      window.location.href = "order.html";
-    }
-  </script>
+function markHelpful(button) {
+  const reviews = JSON.parse(localStorage.getItem('web23_reviews')) || [];
+  const reviewIndex = Array.from(button.closest('.reviews-list').children).indexOf(button.closest('.review-item'));
+  
+  if (reviews[reviewIndex]) {
+    reviews[reviewIndex].helpful = (reviews[reviewIndex].helpful || 0) + 1;
+    localStorage.setItem('web23_reviews', JSON.stringify(reviews));
+    
+    button.innerHTML = `<i class="fas fa-thumbs-up"></i> Helpful (${reviews[reviewIndex].helpful})`;
+    button.disabled = true;
+    button.classList.add('disabled');
+  }
+}
+
+function updateReviewSummary(reviews) {
+  if (reviews.length === 0) return;
+  
+  const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
+  const averageRating = (totalRating / reviews.length).toFixed(1);
+  
+  // Update average rating display
+  const ratingNumber = document.querySelector('.rating-number');
+  if (ratingNumber) {
+    ratingNumber.textContent = averageRating;
+  }
+  
+  const totalReviews = document.querySelector('.total-reviews');
+  if (totalReviews) {
+    totalReviews.textContent = `Based on ${reviews.length} reviews`;
+  }
+  
+  // Update rating distribution
+  const ratingCounts = [0, 0, 0, 0, 0];
+  reviews.forEach(review => {
+    ratingCounts[review.rating - 1]++;
+  });
+  
+  const ratingBars = document.querySelectorAll('.rating-bar');
+  ratingBars.forEach((bar, index) => {
+    const percentage = reviews.length > 0 ? (ratingCounts[4 - index] / reviews.length * 100).toFixed(0) : 0;
+    const barFill = bar.querySelector('.bar-fill');
+    const percentageSpan = bar.querySelector('span:last-child');
+    
+    if (barFill) barFill.style.width = `${percentage}%`;
+    if (percentageSpan) percentageSpan.textContent = `${percentage}%`;
+  });
+}
+</script>
+
 </body>
 </html>

@@ -1,208 +1,564 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tv</title>
-  <style>
-    * {
-      box-sizing: border-box
-    }
-
-    body {
-      font-family: Verdana, sans-serif;
-      margin: 0
-    }
-
-    .mySlides {
-      display: none
-    }
-
-    img {
-      text-align: center
-    }
-
-    .slideshow-container {
-      max-width: 500px;
-      position: relative;
-      margin: auto
-    }
-
-    .prev,
-    .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      width: auto;
-      padding: 16px;
-      margin-top: -22px;
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
-      transition: 0.6s ease;
-      border-radius: 0 3px 3px 0;
-      user-select: none
-    }
-
-    .next {
-      right: 0;
-      border-radius: 3px 0 0 3px
-    }
-
-    .prev:hover,
-    .next:hover {
-      background-color: rgba(0, 0, 0, 0.8)
-    }
-
-    .text {
-      color: #f2f2f2;
-      font-size: 15px;
-      padding: 8px 12px;
-      position: absolute;
-      bottom: 8px;
-      width: 100%;
-      text-align: center
-    }
-
-    .numbertext {
-      color: #f2f2f2;
-      font-size: 12px;
-      padding: 8px 12px;
-      position: absolute;
-      top: 0
-    }
-
-    .dot {
-      cursor: pointer;
-      height: 15px;
-      width: 15px;
-      margin: 0 2px;
-      background-color: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-      transition: background-color 0.6s ease
-    }
-
-    .active,
-    .dot:hover {
-      background-color: orangered
-    }
-
-    .fade {
-      animation-name: fade;
-      animation-duration: 1.5s
-    }
-
-    @keyframes fade {
-      from {
-        opacity: .4
-      }
-
-      to {
-        opacity: 1
-      }
-    }
-
-    body {
-      background-color: black
-    }
-
-    img {
-      padding-left: 20%;
-      height: auto;
-      width: auto
-    }
-
-    .btn {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 20px
-    }
-
-    button {
-      padding: 10px 20px;
-      font-size: 18px;
-      background-color:#00a806 ;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px
-    }
-
-    button:hover {
-      background-color: #005204 ;
-    transform: translateY(-4px);
-    }
-
-    #productName {
-      color: cadetblue;
-      text-align: center;
-      font-size: x-large;
-      margin: 8%
-    }
-
-    .spec-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-      color: rgba(245, 222, 179, 0.836);
-      margin: 10% 5%;
-      font-size: 14px;
-      text-align: left
-    }
-
-    .spec-grid span {
-      background-color:#1a1a1a;
-      padding: 10px;
-      border-radius: 5px
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samsung 98″ Neo QLED 8K TV - JKS Store</title>
+  <link rel="stylesheet" href="webcss.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
-<body style="max-width:1000px;margin:20px auto;">
-  <div class="slideshow-container">
-    <div class="mySlides fade">
-      <div class="numbertext">1 / 3</div><img id="pImage" src="pic/s1.jpeg" style="width:80%;"
-        alt="Samsung QA98QN990CK 98 inch Neo QLED 8K UHD television">
-    </div>
-    <div class="mySlides fade">
-      <div class="numbertext">2 / 3</div><img src="pic/s2.jpeg" style="width:80%;"
-        alt="Side view of the Samsung 8K TV, highlighting its thin design">
-    </div>
-    <div class="mySlides fade">
-      <div class="numbertext">3 / 3</div><img src="pic/s3.jpeg" style="width:80%;"
-        alt="Back view of the Samsung 8K TV, showing the connections">
-    </div><a class="prev" onclick="plusSlides(-1)">❮</a><a class="next" onclick="plusSlides(1)">❯</a>
-  </div><br>
-  <div style="text-align:center"><span class="dot" onclick="currentSlide(1)"></span><span class="dot"
-      onclick="currentSlide(2)"></span><span class="dot" onclick="currentSlide(3)"></span></div>
-  <form id="myForm">
-    <div id="product">
-      <p id="productName"><b>Samsung QA98QN990CK 98 inch Neo QLED 8K UHD</b></p>
-      <p id="productPrice" style="color:crimson;font-size:x-large;text-align:center;"><b> &#8377;3,999,990</b></p>
-    </div>
-    <div>
-      <p
-        style="color:blue;font-size:x-large;text-align:center;border:5px solid white;border:none;border-radius:8px;margin:50px;padding:10px;background-color:skyblue;">
-        <b>Specification</b></p>
-      <div class="spec-grid"><span>Display: 98″ Neo QLED 8K (7680 × 4320), Mini LED with Quantum Matrix Technology
-          Pro</span><span>Refresh Rate: 120 Hz native, Motion Xcelerator Turbo+</span><span>Processor: Neural Quantum
-          Processor 8K</span><span>HDR: Neo Quantum HDR 8K Pro, HDR10+, HLG</span><span>Audio: 6.4.4 channel, 120W,
-          Dolby Atmos, Object Tracking Sound Pro</span><span>Smart OS: Tizen OS with Bixby, Alexa, Google
-          Assistant</span><span>Gaming: 4K@120 Hz, ALLM, VRR, Game Motion Plus, Super Ultrawide Game
-          View</span><span>Connectivity: 4 × HDMI 2.1 (eARC), 3 × USB, LAN, Optical Out, Wi-Fi 6E, Bluetooth
-          5.2</span><span>Included: One
-          Connect Box, SolarCell Remote, Stand</span><span>Weight: ~68 kg (w/o stand)</span><span>Power: Max ~540 W,
-          Standby < 0.5 W</span><span>Extras: Smart Calibration, Ambient Mode, Samsung Gaming Hub, Samsung Health</span>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <i class="fas fa-store"></i>
+        <span>JKS Store</span>
+      </div>
+      <div class="nav-actions">
+        <button id="cartBtn" class="cart-btn">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </button>
       </div>
     </div>
-  </form>
-  <div class="btn"><button onclick="addToCart()">Add To Cart</button><button onclick="buyNow()" style="width:250px;">Buy
-      Now</button></div>
-  <script>let slideIndex = 1; showSlides(slideIndex); function plusSlides(n) { showSlides(slideIndex += n) } function currentSlide(n) { showSlides(slideIndex = n) } function showSlides(n) { let i; let slides = document.getElementsByClassName("mySlides"); let dots = document.getElementsByClassName("dot"); if (n > slides.length) { slideIndex = 1 } if (n < 1) { slideIndex = slides.length } for (i = 0; i < slides.length; i++) { slides[i].style.display = "none" } for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active", "") } slides[slideIndex - 1].style.display = "block"; dots[slideIndex - 1].className += " active" } function addToCart() { const product = { name: document.getElementById("productName").innerText, price: document.getElementById("productPrice").innerText, image: document.getElementById("pImage").src, page: "web41.html" }; let cart = JSON.parse(localStorage.getItem("cartItems")) || []; cart.push(product); localStorage.setItem("cartItems", JSON.stringify(cart)); alert("Product added to cart!") } function buyNow() { const product = { names: "Samsung QA98QN990CK 98 inch Neo QLED 8K UHD", prices: "₹3,999,990" }; localStorage.setItem("selectedProduct", JSON.stringify(product)); window.location.href = "order.html" }</script>
-</body>
+  </nav>
 
+  <main>
+    <!-- Page header / breadcrumb -->
+    <section class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <i class="fas fa-chevron-right"></i>
+          <a href="web-tv.html">Televisions</a>
+          <i class="fas fa-chevron-right"></i>
+          <span>Samsung QA98QN990CK 98″ Neo QLED 8K</span>
+        </div>
+        <h1><i class="fas fa-tv"></i> Samsung QA98QN990CK 98″ Neo QLED 8K UHD</h1>
+        <p>Ultra‑large 98″ 8K Neo QLED TV with Mini‑LED, Neural Quantum Processor 8K, and premium cinematic audio</p>
+      </div>
+    </section>
+
+    <!-- Product detail -->
+    <section class="product-detail">
+      <div class="container">
+        <div class="product-showcase">
+          <!-- Product Gallery -->
+          <div class="product-gallery">
+            <div class="slideshow-container">
+              <div class="slide active">
+                <img id="pImage" src="pic/s1.jpeg" alt="Samsung 98 inch Neo QLED 8K TV front view">
+              </div>
+              <div class="slide">
+                <img src="pic/s2.jpeg" alt="Samsung 98 inch Neo QLED 8K TV side thin design">
+              </div>
+              <div class="slide">
+                <img src="pic/s3.jpeg" alt="Samsung 98 inch Neo QLED 8K TV back with ports and connections">
+              </div>
+
+              <button class="slideshow-nav slideshow-prev" onclick="plusSlides(-1)">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="slideshow-nav slideshow-next" onclick="plusSlides(1)">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+
+            <div class="slideshow-dots">
+              <span class="dot active" onclick="currentSlide(1)"></span>
+              <span class="dot" onclick="currentSlide(2)"></span>
+              <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+          </div>
+
+          <!-- Product Info -->
+          <div class="product-info">
+            <h2 class="product-title" id="productName">
+              Samsung QA98QN990CK 98 inch Neo QLED 8K UHD
+            </h2>
+            <p class="product-price" id="productPrice">₹3,999,990</p>
+            <p class="product-description">
+              This 98″ Samsung Neo QLED 8K TV combines a massive 8K Mini‑LED panel, Neural Quantum Processor 8K, powerful 120 W 6.4.4‑channel sound, and Tizen smart features for a true home‑theatre experience.
+            </p>
+
+            <div class="product-actions">
+              <button class="btn-primary" onclick="addToCart()">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+              <button class="btn-secondary" onclick="buyNow()">
+                <i class="fas fa-bolt"></i>
+                Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specifications -->
+    <section class="specifications">
+      <div class="container">
+        <h2>Technical Specifications</h2>
+        <div class="spec-grid">
+          <div class="spec-item">
+            <h3>Display</h3>
+            <p>98″ Neo QLED 8K panel (7680 × 4320), Mini‑LED backlight with Quantum Matrix Technology Pro</p>
+          </div>
+          <div class="spec-item">
+            <h3>Refresh & Motion</h3>
+            <p>Native 120 Hz refresh rate with Motion Xcelerator Turbo+ for smoother sports and gaming</p>
+          </div>
+          <div class="spec-item">
+            <h3>Processor</h3>
+            <p>Neural Quantum Processor 8K with AI upscaling and advanced picture processing</p>
+          </div>
+          <div class="spec-item">
+            <h3>HDR Support</h3>
+            <p>Neo Quantum HDR 8K Pro with HDR10+ and HLG support for high‑contrast, vivid visuals</p>
+          </div>
+          <div class="spec-item">
+            <h3>Audio</h3>
+            <p>6.4.4‑channel sound system, 120 W output with Dolby Atmos and Object Tracking Sound Pro</p>
+          </div>
+          <div class="spec-item">
+            <h3>Smart Features</h3>
+            <p>Tizen OS with voice assistants including Bixby, Alexa and Google Assistant integration</p>
+          </div>
+          <div class="spec-item">
+            <h3>Gaming Features</h3>
+            <p>4K @ 120 Hz, ALLM, VRR, Game Motion Plus and Super Ultrawide Game View</p>
+          </div>
+          <div class="spec-item">
+            <h3>Connectivity</h3>
+            <p>4× HDMI 2.1 (eARC), 3× USB, LAN, Optical Out, Wi‑Fi 6E and Bluetooth 5.2</p>
+          </div>
+          <div class="spec-item">
+            <h3>Included</h3>
+            <p>One Connect Box, SolarCell Remote, table stand, and standard accessories</p>
+          </div>
+          <div class="spec-item">
+            <h3>Power & Weight</h3>
+            <p>Max power ~540 W, standby < 0.5 W, weight around 68 kg without stand</p>
+          </div>
+          <div class="spec-item">
+            <h3>Extras</h3>
+            <p>Smart Calibration, Ambient Mode, Samsung Gaming Hub and Samsung Health</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+      <div class="container">
+        <h2>Customer Reviews</h2>
+
+        <!-- Review Summary -->
+        <div class="review-summary">
+          <div class="rating-overview">
+            <div class="average-rating">
+              <span class="rating-number">4.9</span>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="total-reviews">Based on 54 reviews</span>
+            </div>
+
+            <div class="rating-bars">
+              <div class="rating-bar">
+                <span>5 stars</span>
+                <div class="bar-container">
+                  <div class="bar-fill" style="width: 82%"></div>
+                </div>
+                <span>82%</span>
+              </div>
+              <div class="rating-bar">
+                <span>4 stars</span>
+                <div class="bar-container">
+                  <div class="bar-fill" style="width: 13%"></div>
+                </div>
+                <span>13%</span>
+              </div>
+              <div class="rating-bar">
+                <span>3 stars</span>
+                <div class="bar-container">
+                  <div class="bar-fill" style="width: 3%"></div>
+                </div>
+                <span>3%</span>
+              </div>
+              <div class="rating-bar">
+                <span>2 stars</span>
+                <div class="bar-container">
+                  <div class="bar-fill" style="width: 1%"></div>
+                </div>
+                <span>1%</span>
+              </div>
+              <div class="rating-bar">
+                <span>1 star</span>
+                <div class="bar-container">
+                  <div class="bar-fill" style="width: 1%"></div>
+                </div>
+                <span>1%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add Review Form -->
+        <div class="add-review">
+          <h3>Write a Review</h3>
+          <form id="reviewForm">
+            <div class="rating-input">
+              <label>Your Rating:</label>
+              <div class="star-rating">
+                <i class="far fa-star" data-rating="1"></i>
+                <i class="far fa-star" data-rating="2"></i>
+                <i class="far fa-star" data-rating="3"></i>
+                <i class="far fa-star" data-rating="4"></i>
+                <i class="far fa-star" data-rating="5"></i>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input type="text" id="reviewName" placeholder="Your Name" required>
+            </div>
+
+            <div class="form-group">
+              <textarea id="reviewText" placeholder="Write your review..." rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary">
+              <i class="fas fa-paper-plane"></i>
+              Submit Review
+            </button>
+          </form>
+        </div>
+
+        <!-- Reviews List -->
+        <div class="reviews-list" id="reviewsList">
+          <!-- Reviews will be dynamically added here -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 JKS Store. All rights reserved. | Premium Electronics Store</p>
+    </div>
+  </footer>
+
+<script>
+// Slideshow
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("slide");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].classList.remove("active");
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].classList.remove("active");
+  }
+  slides[slideIndex - 1].classList.add("active");
+  dots[slideIndex - 1].classList.add("active");
+}
+
+// Cart
+function addToCart() {
+  const product = {
+    name: document.getElementById("productName").innerText,
+    price: document.getElementById("productPrice").innerText,
+    image: document.getElementById("pImage").getAttribute("src"),
+    page: "web41.html"
+  };
+  let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+  cart.push(product);
+  localStorage.setItem("cartItems", JSON.stringify(cart));
+
+  updateCartCount();
+  showNotification("Product added to cart!");
+}
+
+function buyNow() {
+  const product = {
+    names: "Samsung QA98QN990CK 98 inch Neo QLED 8K UHD",
+    prices: "₹3,999,990"
+  };
+  localStorage.setItem("selectedProduct", JSON.stringify(product));
+  window.location.href = "order.html";
+}
+
+// Cart button -> cart page
+document.getElementById('cartBtn').addEventListener('click', () => {
+  window.location.href = 'cart.html';
+});
+
+// Update cart count in navbar
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const cartCountElement = document.querySelector(".cart-count");
+  if (cartCountElement) {
+    cartCountElement.textContent = cart.length;
+    cartCountElement.style.display = cart.length > 0 ? 'flex' : 'none';
+  }
+}
+
+// Notification toast
+function showNotification(message) {
+  const notification = document.createElement('div');
+  notification.className = 'notification';
+  notification.textContent = message;
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  `;
+
+  document.body.appendChild(notification);
+
+  setTimeout(() => {
+    notification.style.transform = 'translateX(0)';
+  }, 100);
+
+  setTimeout(() => {
+    notification.style.transform = 'translateX(100%)';
+    setTimeout(() => {
+      document.body.removeChild(notification);
+    }, 300);
+  }, 3000);
+}
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+  const navbar = document.querySelector('.navbar');
+  if (window.scrollY > 100) {
+    navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+    navbar.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
+  } else {
+    navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+    navbar.style.boxShadow = 'none';
+  }
+});
+
+// Init
+updateCartCount();
+loadReviews();
+
+// Review system
+let selectedRating = 0;
+
+// Star rating interaction
+document.querySelectorAll('.star-rating i').forEach(star => {
+  star.addEventListener('click', function() {
+    selectedRating = parseInt(this.dataset.rating);
+    updateStarDisplay(selectedRating);
+  });
+
+  star.addEventListener('mouseenter', function() {
+    const hoverRating = parseInt(this.dataset.rating);
+    updateStarDisplay(hoverRating);
+  });
+});
+
+document.querySelector('.star-rating').addEventListener('mouseleave', function() {
+  updateStarDisplay(selectedRating);
+});
+
+function updateStarDisplay(rating) {
+  document.querySelectorAll('.star-rating i').forEach((star, index) => {
+    if (index < rating) {
+      star.classList.remove('far');
+      star.classList.add('fas');
+    } else {
+      star.classList.remove('fas');
+      star.classList.add('far');
+    }
+  });
+}
+
+// Review form submit
+document.getElementById('reviewForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  if (selectedRating === 0) {
+    showNotification('Please select a rating!');
+    return;
+  }
+
+  const name = document.getElementById('reviewName').value.trim();
+  const text = document.getElementById('reviewText').value.trim();
+
+  if (!name || !text) {
+    showNotification('Please fill in all fields!');
+    return;
+  }
+
+  const review = {
+    name: name,
+    rating: selectedRating,
+    text: text,
+    date: new Date().toLocaleDateString(),
+    helpful: 0
+  };
+
+  let reviews = JSON.parse(localStorage.getItem('web41_reviews')) || [];
+  reviews.unshift(review);
+  localStorage.setItem('web41_reviews', JSON.stringify(reviews));
+
+  this.reset();
+  selectedRating = 0;
+  updateStarDisplay(0);
+
+  loadReviews();
+  showNotification('Review submitted successfully!');
+});
+
+// Load & render reviews
+function loadReviews() {
+  const reviews = JSON.parse(localStorage.getItem('web41_reviews')) || [
+    {
+      name: "Karan Gupta",
+      rating: 5,
+      text: "Picture quality is unbelievable at this size and the sound system is like a built-in home theater.",
+      date: "12/2/2024",
+      helpful: 17
+    },
+    {
+      name: "Sneha Rao",
+      rating: 5,
+      text: "Perfect for a large living room, gaming performance at 4K 120Hz is superb.",
+      date: "12/1/2024",
+      helpful: 14
+    },
+    {
+      name: "Arjun Nair",
+      rating: 4,
+      text: "Very premium TV with amazing brightness and blacks. Installation needs space but worth it.",
+      date: "11/30/2024",
+      helpful: 9
+    }
+  ];
+
+  const reviewsList = document.getElementById('reviewsList');
+  reviewsList.innerHTML = '';
+
+  if (reviews.length === 0) {
+    reviewsList.innerHTML = '<p class="no-reviews">No reviews yet. Be the first to review!</p>';
+    return;
+  }
+
+  reviews.forEach(review => {
+    const reviewElement = createReviewElement(review);
+    reviewsList.appendChild(reviewElement);
+  });
+
+  updateReviewSummary(reviews);
+}
+
+function createReviewElement(review) {
+  const reviewDiv = document.createElement('div');
+  reviewDiv.className = 'review-item';
+
+  const stars = Array(5).fill(0).map((_, i) =>
+    i < review.rating ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>'
+  ).join('');
+
+  reviewDiv.innerHTML = `
+    <div class="review-header">
+      <div class="reviewer-info">
+        <h4>${review.name}</h4>
+        <div class="review-rating">${stars}</div>
+      </div>
+      <span class="review-date">${review.date}</span>
+    </div>
+    <p class="review-text">${review.text}</p>
+    <div class="review-actions">
+      <button class="helpful-btn" onclick="markHelpful(this)">
+        <i class="fas fa-thumbs-up"></i>
+        Helpful (${review.helpful || 0})
+      </button>
+    </div>
+  `;
+
+  return reviewDiv;
+}
+
+function markHelpful(button) {
+  const reviews = JSON.parse(localStorage.getItem('web41_reviews')) || [];
+  const reviewIndex = Array.from(button.closest('.reviews-list').children).indexOf(button.closest('.review-item'));
+
+  if (reviews[reviewIndex]) {
+    reviews[reviewIndex].helpful = (reviews[reviewIndex].helpful || 0) + 1;
+    localStorage.setItem('web41_reviews', JSON.stringify(reviews));
+
+    button.innerHTML = `<i class="fas fa-thumbs-up"></i> Helpful (${reviews[reviewIndex].helpful})`;
+    button.disabled = true;
+    button.classList.add('disabled');
+  }
+}
+
+function updateReviewSummary(reviews) {
+  if (reviews.length === 0) return;
+
+  const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
+  const averageRating = (totalRating / reviews.length).toFixed(1);
+
+  const ratingNumber = document.querySelector('.rating-number');
+  if (ratingNumber) {
+    ratingNumber.textContent = averageRating;
+  }
+
+  const totalReviews = document.querySelector('.total-reviews');
+  if (totalReviews) {
+    totalReviews.textContent = `Based on ${reviews.length} reviews`;
+  }
+
+  const ratingCounts = [0, 0, 0, 0, 0];
+  reviews.forEach(review => {
+    ratingCounts[review.rating - 1]++;
+  });
+
+  const ratingBars = document.querySelectorAll('.rating-bar');
+  ratingBars.forEach((bar, index) => {
+    const percentage = reviews.length > 0 ? (ratingCounts[4 - index] / reviews.length * 100).toFixed(0) : 0;
+    const barFill = bar.querySelector('.bar-fill');
+    const percentageSpan = bar.querySelector('span:last-child');
+
+    if (barFill) barFill.style.width = `${percentage}%`;
+    if (percentageSpan) percentageSpan.textContent = `${percentage}%`;
+  });
+}
+</script>
+</body>
 </html>
