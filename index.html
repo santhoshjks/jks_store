@@ -12,7 +12,7 @@
 </head>
 <body>
 
-  <nav class="navbar">
+ <nav class="navbar">
     <div class="nav-container">
       <div class="nav-brand">
         <i class="fas fa-store"></i>
@@ -189,4 +189,51 @@
     </div>
   </footer>
 
+  <!-- Customer Support Chatbot -->
+  <div id="chatbot" class="chatbot-container">
+    <div class="chatbot-bubble" id="chatbotBubble">
+      <i class="fas fa-comments"></i>
+      <span class="chat-notification">Need help?</span>
+    </div>
+    
+    <div class="chatbot-window" id="chatbotWindow">
+      <div class="chatbot-header">
+        <div class="chatbot-info">
+          <i class="fas fa-headset"></i>
+          <div>
+            <h4>Customer Support</h4>
+            <span class="online-status">Online</span>
+          </div>
+        </div>
+        <button class="chatbot-close" id="chatbotClose">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="chatbot-messages" id="chatMessages">
+        <div class="bot-message">
+          <i class="fas fa-robot"></i>
+          <div class="message-content">
+            <p>Hello! Welcome to JKS Store. How can I assist you today?</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="chatbot-input">
+        <input type="text" id="chatInput" placeholder="Type your message...">
+        <button id="sendMessage">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+      
+      <div class="quick-actions">
+        <button class="quick-btn" data-message="What are your store hours?">Store Hours</button>
+        <button class="quick-btn" data-message="Do you offer home delivery?">Delivery Info</button>
+        <button class="quick-btn" data-message="What's your return policy?">Returns</button>
+        <button class="quick-btn" data-message="Contact support agent">Talk to Agent</button>
+      </div>
+    </div>
+  </div>
+
   <script src="webjs.js"></script>
+  <script src="chatbot.js"></script>
