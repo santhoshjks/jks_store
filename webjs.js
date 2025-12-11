@@ -82,17 +82,39 @@ const searchBar = document.getElementById("searchBar");
 const clearBtn = document.getElementById("clearBtn");
 const searchBtn = document.getElementById("searchBtn");
 const productList = document.getElementById("productList");
-const cartBtn = document.getElementById("cartBtn");
 
-// Cart functionality
-let cartCount = 0;
-function updateCartCount() {
-  const cartCountElement = document.querySelector(".cart-count");
-  if (cartCountElement) {
-    cartCountElement.textContent = cartCount;
-    cartCountElement.style.display = cartCount > 0 ? 'flex' : 'none';
-  }
-}
+    
+    // Cart functionality
+    document.getElementById('cartBtn').addEventListener('click', () => {
+      window.location.href = 'cart.html';
+    });
+
+    // Update cart count
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+      const cartCountElement = document.querySelector(".cart-count");
+      if (cartCountElement) {
+        cartCountElement.textContent = cart.length;
+        cartCountElement.style.display = cart.length > 0 ? 'flex' : 'none';
+      }
+    }
+
+    // Scroll effect for navbar
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 100) {
+        navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+        navbar.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
+      } else {
+        navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+        navbar.style.boxShadow = 'none';
+      }
+    });
+
+    // Initialize
+    updateCartCount();
+
+    
 
 // Search functionality
 function displayProducts(filtered) {
