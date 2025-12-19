@@ -18,6 +18,35 @@
         <i class="fas fa-store"></i>
         <span>JKS Store</span>
       </div>
+      <div class="nav-actions">
+        <div id="userInfo" class="user-info" style="display: none;">
+          <div class="user-dropdown">
+            <button class="user-menu-btn" id="userMenuBtn">
+              <span class="user-name"></span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-menu" id="userDropdown">
+              <div class="dropdown-header">
+                <i class="fas fa-user-circle"></i>
+                <span class="dropdown-username"></span>
+              </div>
+              <div class="dropdown-divider"></div>
+              <button class="dropdown-item" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="authButtons" class="auth-buttons">
+          <button id="loginBtn" class="login-btn">
+            <i class="fas fa-sign-in-alt"></i>
+            Login
+          </button>
+          
+        </div>
+        
+      </div>
     </div>
   </nav>
 
@@ -152,13 +181,46 @@
 
   function removeFromCart(index) {
     cart.splice(index, 1);
-    localStorage.setItem("cartItems", JSON.stringify(cart));
+    
+    // Save to user-specific cart if user is authenticated
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser) {
+      const userCartKey = `cartItems_${currentUser.email}`;
+      localStorage.setItem(userCartKey, JSON.stringify(cart));
+    } else {
+      // Fallback to general cart
+      localStorage.setItem("cartItems", JSON.stringify(cart));
+    }
+    
     displayCart();
   }
 
   function proceedToOrder() {
+    // Check if user is authenticated
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (!currentUser) {
+      // Use animated notification instead of alert
+      if (typeof authModal !== 'undefined' && authModal.showNotification) {
+        authModal.showNotification('Please login to proceed to checkout!', 'warning', 'Login Required');
+      } else {
+        // Fallback to basic notification if authModal not available
+        console.log('Please login to proceed to checkout!');
+      }
+      // Show login modal
+      const authModalElement = document.getElementById('authModal');
+      if (authModalElement) {
+        authModalElement.style.display = 'flex';
+      }
+      return;
+    }
+
     if (cart.length === 0) {
-      alert("Cart is empty!");
+      // Use animated notification instead of alert
+      if (typeof authModal !== 'undefined' && authModal.showNotification) {
+        authModal.showNotification('Your cart is empty!', 'error', 'Cart Empty');
+      } else {
+        alert("Cart is empty!");
+      }
       return;
     }
 
@@ -174,6 +236,72 @@
     window.location.href = "order.html";
   }
 
+  // Authentication check on page load
+  function checkAuthentication() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const cartSection = document.querySelector('.cart-section');
+    const authRequired = document.createElement('div');
+    
+    if (!currentUser) {
+      // Hide cart content and show login required message
+      cartSection.style.display = 'none';
+      
+      authRequired.className = 'auth-required-container';
+      authRequired.innerHTML = `
+        <div class="auth-required-card">
+          <div class="auth-required-icon">
+            <i class="fas fa-lock"></i>
+          </div>
+          <h2>Login Required</h2>
+          <p>Please login to view your shopping cart and proceed to checkout.</p>
+          <div class="auth-required-actions">
+            <button onclick="showLoginModal()" class="btn-primary">
+              <i class="fas fa-sign-in-alt"></i>
+              Login
+            </button>
+            <a href="index.html" class="btn-secondary">
+              <i class="fas fa-arrow-left"></i>
+              Back to Store
+            </a>
+          </div>
+        </div>
+      `;
+      
+      cartSection.parentNode.insertBefore(authRequired, cartSection);
+    } else {
+      // User is authenticated, load user-specific cart
+      loadUserCart(currentUser.email);
+    }
+  }
+
+  // Load cart items for specific user
+  function loadUserCart(userEmail) {
+    // Get user-specific cart or fallback to general cart
+    const userCartKey = `cartItems_${userEmail}`;
+    let userCart = JSON.parse(localStorage.getItem(userCartKey)) || [];
+    
+    // If user has no cart items, check if there are items in general cart
+    if (userCart.length === 0) {
+      const generalCart = JSON.parse(localStorage.getItem("cartItems")) || [];
+      if (generalCart.length > 0) {
+        // Move items from general cart to user cart
+        userCart = generalCart;
+        localStorage.setItem(userCartKey, JSON.stringify(userCart));
+        localStorage.removeItem("cartItems");
+      }
+    }
+    
+    cart = userCart;
+    displayCart();
+  }
+
+  function showLoginModal() {
+    const authModal = document.getElementById('authModal');
+    if (authModal) {
+      authModal.style.display = 'flex';
+    }
+  }
+
   // Scroll effect for navbar
   window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
@@ -187,8 +315,110 @@
   });
 
   // Initialize
+  checkAuthentication();
   displayCart();
 </script>
+
+  <!-- Authentication Modal -->
+  <div id="authModal" class="auth-modal">
+    <div class="auth-modal-content">
+      <div class="auth-header">
+        <h2 id="authTitle">Login</h2>
+        <button class="auth-close" id="authClose">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="auth-body">
+        <!-- Login Form -->
+        <form id="loginForm" class="auth-form">
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" required>
+          </div>
+          <button type="submit" class="auth-submit-btn">Login</button>
+        </form>
+        
+        <!-- Register Form -->
+        <form id="registerForm" class="auth-form" style="display: none;">
+          <div class="form-group">
+            <label for="registerName">Full Name</label>
+            <input type="text" id="registerName" required>
+          </div>
+          <div class="form-group">
+            <label for="registerEmail">Email</label>
+            <input type="email" id="registerEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="registerPassword">Password</label>
+            <input type="password" id="registerPassword" required>
+          </div>
+          <div class="form-group">
+            <label for="registerConfirmPassword">Confirm Password</label>
+            <input type="password" id="registerConfirmPassword" required>
+          </div>
+          <button type="submit" class="auth-submit-btn">Register</button>
+        </form>
+        
+        <div class="auth-switch">
+          <span id="authSwitchText">Don't have an account?</span>
+          <button id="authSwitchBtn" class="auth-switch-btn">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Email Verification Modal -->
+  <div id="verificationModal" class="auth-modal">
+    <div class="auth-modal-content">
+      <div class="auth-header">
+        <h2>Email Verification</h2>
+        <button class="auth-close" id="verificationClose">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="auth-body">
+        <div class="verification-info">
+          <i class="fas fa-envelope"></i>
+          <p>We've sent a verification code to your email address.</p>
+          <p id="verificationEmail"></p>
+        </div>
+        
+        <form id="verificationForm" class="auth-form">
+          <div class="form-group">
+            <label for="verificationCode">Verification Code</label>
+            <input type="text" id="verificationCode" placeholder="Enter 6-digit code" maxlength="6" required>
+          </div>
+          <button type="submit" class="auth-submit-btn">Verify Email</button>
+        </form>
+        
+        <div class="verification-actions">
+          <button id="resendCode" class="resend-btn">
+            <i class="fas fa-redo"></i>
+            Resend Code
+          </button>
+          <button id="changeEmail" class="change-email-btn">
+            <i class="fas fa-edit"></i>
+            Change Email
+          </button>
+        </div>
+        
+        <div class="verification-timer">
+          <span id="timerText">Resend code in </span>
+          <span id="timerCount">60</span>
+          <span id="timerSeconds">s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="webjs.js"></script>
   <footer class="footer">
     <div class="container">
       <p>&copy; 2026 JKS Store. All rights reserved. | Premium Electronics Store</p>

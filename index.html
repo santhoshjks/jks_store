@@ -19,7 +19,33 @@
         <span>JKS Store</span>
       </div>
       <div class="nav-actions">
-        <button id="cartBtn" class="cart-btn">
+        <div id="userInfo" class="user-info" style="display: none;">
+          <div class="user-dropdown">
+            <button class="user-menu-btn" id="userMenuBtn">
+              <span class="user-name"></span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-menu" id="userDropdown">
+              <div class="dropdown-header">
+                <i class="fas fa-user-circle"></i>
+                <span class="dropdown-username"></span>
+              </div>
+              <div class="dropdown-divider"></div>
+              <button class="dropdown-item" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="authButtons" class="auth-buttons">
+          <button id="loginBtn" class="login-btn">
+            <i class="fas fa-sign-in-alt"></i>
+            Login
+          </button>
+        
+        </div>
+        <button id="cartBtn" class="cart-btn" style="display: none;">
           <i class="fas fa-shopping-cart"></i>
           <span class="cart-count">0</span>
         </button>
@@ -208,7 +234,6 @@
         <button class="chatbot-close" id="chatbotClose">
           <i class="fas fa-times"></i>
         </button>
-      </div>
       
       <div class="chatbot-messages" id="chatMessages">
         <div class="bot-message">
@@ -227,14 +252,105 @@
       </div>
       
       <div class="quick-actions">
-        <button class="quick-btn" data-message="What are your store hours?">Store Hours</button>
-        <button class="quick-btn" data-message="Do you offer home delivery?">Delivery Info</button>
-        <button class="quick-btn" data-message="What's your return policy?">Returns</button>
-        <button class="quick-btn" data-message="Contact support agent">Talk to Agent</button>
       </div>
     </div>
   </div>
 
+  <!-- Authentication Modal -->
+  <div id="authModal" class="auth-modal">
+    <div class="auth-modal-content">
+      <div class="auth-header">
+        <h2 id="authTitle">Login</h2>
+        <button class="auth-close" id="authClose">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="auth-body">
+        <!-- Login Form -->
+        <form id="loginForm" class="auth-form">
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" required>
+          </div>
+          <button type="submit" class="auth-submit-btn">Login</button>
+        </form>
+        
+        <!-- Register Form -->
+        <form id="registerForm" class="auth-form" style="display: none;">
+          <div class="form-group">
+            <label for="registerName">Full Name</label>
+            <input type="text" id="registerName" required>
+          </div>
+          <div class="form-group">
+            <label for="registerEmail">Email</label>
+            <input type="email" id="registerEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="registerPassword">Password</label>
+            <input type="password" id="registerPassword" required>
+          </div>
+          <div class="form-group">
+            <label for="registerConfirmPassword">Confirm Password</label>
+            <input type="password" id="registerConfirmPassword" required>
+          </div>
+          <button type="submit" class="auth-submit-btn">Register</button>
+        </form>
+        
+        <div class="auth-switch">
+          <span id="authSwitchText">Don't have an account?</span>
+          <button id="authSwitchBtn" class="auth-switch-btn">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Email Verification Modal -->
+  <div id="verificationModal" class="auth-modal">
+    <div class="auth-modal-content">
+      <div class="auth-header">
+        <h2>Email Verification</h2>
+      </div>
+      <div class="auth-body">
+        <div class="verification-info">
+          <i class="fas fa-envelope"></i>
+          <p>We've sent a verification code to your email address.</p>
+          <p id="verificationEmail"></p>
+        </div>
+        
+        <form id="verificationForm" class="auth-form">
+          <div class="form-group">
+            <label for="verificationCode">Verification Code</label>
+            <input type="text" id="verificationCode" placeholder="Enter 6-digit code" maxlength="6" required>
+          </div>
+          <button type="submit" class="auth-submit-btn">Verify Email</button>
+        </form>
+        
+        <div class="verification-actions">
+          <button id="resendCode" class="resend-btn">
+            <i class="fas fa-redo"></i>
+            Resend Code
+          </button>
+          <button id="changeEmail" class="change-email-btn">
+            <i class="fas fa-edit"></i>
+            Change Email
+          </button>
+        </div>
+        
+        <div class="verification-timer">
+          <span id="timerText">Resend code in </span>
+          <span id="timerCount">60</span>
+          <span id="timerSeconds">s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script src="webjs.js"></script>
   <script src="chatbot.js"></script>
   

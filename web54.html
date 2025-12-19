@@ -19,7 +19,33 @@
         <span>JKS Store</span>
       </div>
       <div class="nav-actions">
-        <button id="cartBtn" class="cart-btn">
+        <div id="userInfo" class="user-info" style="display: none;">
+          <div class="user-dropdown">
+            <button class="user-menu-btn" id="userMenuBtn">
+              <span class="user-name"></span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-menu" id="userDropdown">
+              <div class="dropdown-header">
+                <i class="fas fa-user-circle"></i>
+                <span class="dropdown-username"></span>
+              </div>
+              <div class="dropdown-divider"></div>
+              <button class="dropdown-item" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="authButtons" class="auth-buttons">
+          <button id="loginBtn" class="login-btn">
+            <i class="fas fa-sign-in-alt"></i>
+            Login
+          </button>
+       
+        </div>
+        <button id="cartBtn" class="cart-btn" style="display: none;">
           <i class="fas fa-shopping-cart"></i>
           <span class="cart-count">0</span>
         </button>
@@ -264,15 +290,34 @@ function showSlides(n) {
 
 // Cart
 function addToCart() {
+  // Check if user is authenticated
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  if (!currentUser) {
+    // Use animated notification instead of alert
+    if (typeof authModal !== 'undefined' && authModal.showNotification) {
+      authModal.showNotification('Please login to add products to cart!', 'warning', 'Login Required');
+    } else {
+      // Fallback to basic notification if authModal not available
+      console.log('Please login to add products to cart!');
+    }
+    // Show login modal if it exists
+    const authModalElement = document.getElementById('authModal');
+    if (authModalElement) {
+      authModalElement.style.display = 'flex';
+    }
+    return;
+  }
   const product = {
     name: document.getElementById("productName").innerText,
     price: document.getElementById("productPrice").innerText,
     image: document.getElementById("pImage").getAttribute("src"),
     page: "web54.html"
   };
-  let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+  // Use user-specific cart storage
+  const userCartKey = `cartItems_${currentUser.email}`;
+  let cart = JSON.parse(localStorage.getItem(userCartKey)) || [];
   cart.push(product);
-  localStorage.setItem("cartItems", JSON.stringify(cart));
+  localStorage.setItem(userCartKey, JSON.stringify(cart));
 
   updateCartCount();
   showNotification("Product added to cart!");
@@ -294,7 +339,18 @@ document.getElementById('cartBtn').addEventListener('click', () => {
 
 // Update cart count
 function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+  // Use user-specific cart storage if user is authenticated
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  let cart = [];
+  
+  if (currentUser) {
+    const userCartKey = `cartItems_${currentUser.email}`;
+    cart = JSON.parse(localStorage.getItem(userCartKey)) || [];
+  } else {
+    // Fallback to general cart for non-authenticated users
+    cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+  }
+  
   const cartCountElement = document.querySelector(".cart-count");
   if (cartCountElement) {
     cartCountElement.textContent = cart.length;
@@ -523,5 +579,107 @@ function updateReviewSummary(reviews) {
   });
 }
 </script>
+
+  <!-- Authentication Modal -->
+  <div id="authModal" class="auth-modal">
+    <div class="auth-modal-content">
+      <div class="auth-header">
+        <h2 id="authTitle">Login</h2>
+        <button class="auth-close" id="authClose">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="auth-body">
+        <!-- Login Form -->
+        <form id="loginForm" class="auth-form">
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" required>
+          </div>
+          <button type="submit" class="auth-submit-btn">Login</button>
+        </form>
+        
+        <!-- Register Form -->
+        <form id="registerForm" class="auth-form" style="display: none;">
+          <div class="form-group">
+            <label for="registerName">Full Name</label>
+            <input type="text" id="registerName" required>
+          </div>
+          <div class="form-group">
+            <label for="registerEmail">Email</label>
+            <input type="email" id="registerEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="registerPassword">Password</label>
+            <input type="password" id="registerPassword" required>
+          </div>
+          <div class="form-group">
+            <label for="registerConfirmPassword">Confirm Password</label>
+            <input type="password" id="registerConfirmPassword" required>
+          </div>
+          <button type="submit" class="auth-submit-btn">Register</button>
+        </form>
+        
+        <div class="auth-switch">
+          <span id="authSwitchText">Don't have an account?</span>
+          <button id="authSwitchBtn" class="auth-switch-btn">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Email Verification Modal -->
+  <div id="verificationModal" class="auth-modal">
+    <div class="auth-modal-content">
+      <div class="auth-header">
+        <h2>Email Verification</h2>
+        <button class="auth-close" id="verificationClose">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="auth-body">
+        <div class="verification-info">
+          <i class="fas fa-envelope"></i>
+          <p>We've sent a verification code to your email address.</p>
+          <p id="verificationEmail"></p>
+        </div>
+        
+        <form id="verificationForm" class="auth-form">
+          <div class="form-group">
+            <label for="verificationCode">Verification Code</label>
+            <input type="text" id="verificationCode" placeholder="Enter 6-digit code" maxlength="6" required>
+          </div>
+          <button type="submit" class="auth-submit-btn">Verify Email</button>
+        </form>
+        
+        <div class="verification-actions">
+          <button id="resendCode" class="resend-btn">
+            <i class="fas fa-redo"></i>
+            Resend Code
+          </button>
+          <button id="changeEmail" class="change-email-btn">
+            <i class="fas fa-edit"></i>
+            Change Email
+          </button>
+        </div>
+        
+        <div class="verification-timer">
+          <span id="timerText">Resend code in </span>
+          <span id="timerCount">60</span>
+          <span id="timerSeconds">s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="webjs.js"></script>
+
 </body>
 </html>
